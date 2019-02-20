@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>vowelsCounter.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/*
+    Name:     Kimbie (light)
+    Author:   Jan T. Sott
+    License:  Creative Commons Attribution-ShareAlike 4.0 Unported License
+    URL:      https://github.com/idleberg/Kimbie-highlight.js
+*/
+
+/* Kimbie Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #a57a4c;
+}
+
+/* Kimbie Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-meta {
+  color: #dc3958;
+}
+
+/* Kimbie Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-deletion,
+.hljs-link {
+  color: #f79a32;
+}
+
+/* Kimbie Yellow */
+.hljs-title,
+.hljs-section,
+.hljs-attribute {
+  color: #f06431;
+}
+
+/* Kimbie Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #889b4a;
+}
+
+/* Kimbie Purple */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-function {
+  color: #98676a;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #fbebd4;
+  color: #84613d;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<p><img src="http://programmingdays.com/img/62c218d0-fda7-4dd2-b49f-8628130c4c8f.png" alt="alt text" title="programmingDays"></p>
+<h1 id="c-code-kata-week-1">C++ code kata: Week #1</h1>
+<p>Hello 👋</p>
+<h1 id="ground-statement">Ground statement</h1>
+<p>Consider you as a data engineer. As a data engineer, your first task is to make vowel recognition dataset. For the exercise, you have to write <code>vowels_counter()</code> that will take a string and returns the total number of vowels in it. e.g. 👇</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">auto</span> nCount = vowels_counter(<span class="hljs-string">"abcde"</span>)
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, n Count)
+<span class="hljs-number">2</span>
+</div></code></pre>
+<h1 id="surface-1">Surface #1</h1>
+<p>If you have completed <strong>Ground Statement</strong>, then for <strong>surface # 1</strong>  exercise you have to return the sum of the total number of vowels till it is a single digit. e.g. 👇</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">auto</span> nCSum = vowels_counter(<span class="hljs-string">"A cup of tea and coffee with sugar cube."</span>)
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, n Count)
+<span class="hljs-number">5</span>
+</div></code></pre>
+<h1 id="surface-2">Surface #2</h1>
+<p>To reach <strong>surface # 2</strong> you have to return the sum of the total number of vowels in each substring. &quot;abba&quot; will have substrings &quot;a, ab, bb, ba, abb, bba, abba&quot;, and the number of vowels in each substring will be 1 1, 0, 1, 1, 1, 2 and the total number will be sum of all vowels presence e.g. 👇</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">auto</span> nCSum = vowels_counter(<span class="hljs-string">"abba"</span>)
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, n Count)
+<span class="hljs-number">7</span>
+</div></code></pre>
+<h1 id="tools">Tools</h1>
+<p>To write solutions you can download tools from:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Tool</th>
+<th style="text-align:center">Usage</th>
+<th style="text-align:center">Download Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Visual Studio Code</td>
+<td style="text-align:center">Lightweight program editor.</td>
+<td style="text-align:center"><a href="https://code.visualstudio.com/download">Download</a></td>
+</tr>
+<tr>
+<td style="text-align:left">GCC (Linux)</td>
+<td style="text-align:center">C / C++ Compiler.</td>
+<td style="text-align:center"><a href="https://gcc.gnu.org/">Download</a></td>
+</tr>
+<tr>
+<td style="text-align:left">MingGW (Windows)</td>
+<td style="text-align:center">C / C++ Compiler.</td>
+<td style="text-align:center"><a href="http://www.mingw.org/">Download</a></td>
+</tr>
+<tr>
+<td style="text-align:left">XCode toolkit (MacOS)</td>
+<td style="text-align:center">IDE with multi language support.</td>
+<td style="text-align:center"><a href="https://developer.apple.com/xcode/">Download</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Catch2</td>
+<td style="text-align:center">C++ Test framework</td>
+<td style="text-align:center"><a href="https://github.com/catchorg/Catch2">Download</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="test-script">Test Script</h1>
+<p>Test Script for this week's problem can be downloaded from <strong><a href="">here</a></strong>.</p>
+<h3 id="all-the-best-%F0%9F%A4%9E">All the best 🤞</h3>
+<h5 id="still-have-some-questions-related-to-this-exercise-reach-us-at"><em>Still have some questions related to this exercise. Reach us at</em></h5>
+<h5 id="1-%F0%9F%92%AC-programmingdays-skype">1. 💬 programmingdays (Skype)</h5>
+
+</body>
+</html>
