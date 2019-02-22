@@ -1,34 +1,35 @@
-#include <vector>
-#include <string>
-#include <iostream>
-#include <algorithm>
+#include <string.h>
 #include <new>
 using namespace std;
 
-int * orderedCounter(const char *pPhrase){
-    int szAlphabets [52];
+
+int * orderedCounter_010(const char *pPhrase){
+#define kALPHABET 52U
+    int szAlphabets [kALPHABET] = {0};
     int nIndex;
-    for (int nX = 0 ; nX < 52; ++ nX)
-        szAlphabets [nX] = 0;
+    int nFrequency;
 
     for (nIndex = 0; pPhrase[nIndex]; ++nIndex)
-        szAlphabets [pPhrase[nIndex]<'a'?pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26] ++;
+        if (pPhrase[nIndex]>='A' && pPhrase[nIndex]<='Z')
+            szAlphabets [pPhrase[nIndex] - 'A'] ++;
+        else if (pPhrase[nIndex]>='a' && pPhrase[nIndex]<='z')
+            szAlphabets [pPhrase[nIndex] - 'a' + 26] ++;
 
-   int *szFreq = new int[6];
-    for (int nX = 0 ; nX < 6; ++ nX)
-        szFreq [nX] = szAlphabets[pPhrase[nX]<'a'? pPhrase[nX] - 'A': pPhrase[nX] - 'a' + 26];
+    nFrequency = 0;    
+    for (nIndex = 0 ; nIndex < 52; ++nIndex)
+        if(szAlphabets [nIndex])
+            ++nFrequency;
+   
+    int *szFreq = new int[nFrequency + 1]();
+    nIndex = 0;
+    for (nFrequency = nIndex = 0 ; nIndex < strlen(pPhrase); ++nIndex)
+        if ((pPhrase[nIndex]>='A' && pPhrase[nIndex]<='Z') || (pPhrase[nIndex]>='a' && pPhrase[nIndex]<='z'))
+            if (szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26])
+            {
+                szFreq [nFrequency++] = szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26];
+                szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26] = 0;
+            }
 
  
     return szFreq;
 }
-
-int main()
-{
-    int x = 0;
-    int * pPhrase = orderedCounter("Tapan");
-
-    for (x = 0; x < 5; x++){
-        cout << x << ". " << pPhrase [x] << endl;
-    } 
-}
-
