@@ -7,7 +7,7 @@ using namespace std;
 #include <string.h>
 #include <ctype.h>
 
-vector<int> orderedCounter_030(const char * const pPhrase){
+vector<pair<char, int>> orderedCounter_level1_010(const char * const pPhrase){
 #define kALPHABET 52U
     map<char, int> freqHolder;
     
@@ -19,17 +19,16 @@ vector<int> orderedCounter_030(const char * const pPhrase){
            freqHolder.insert(std::make_pair(value, 1));
     }
 
-    vector<int> freq;
+    vector<pair<char, int>> freq;
     int nIndex = 0;
 
     while (pPhrase[nIndex]){
         map<char, int>::iterator itr = freqHolder.find(pPhrase[nIndex++]);
         if(itr != freqHolder.end()){
-            freq.push_back(itr->second);
+            freq.push_back(make_pair(itr->first, itr->second));
             freqHolder.erase(itr);
         }
     }
-    
-    if(freq.empty()) freq.push_back(0);
+    if(freq.empty()) freq.push_back(make_pair(NULL, 0));
     return freq;
 }

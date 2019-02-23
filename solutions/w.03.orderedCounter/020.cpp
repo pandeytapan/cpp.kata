@@ -32,7 +32,7 @@ vector<int> orderedCounter_020(const char * const pPhrase){
         vector<VALUETYPE>::iterator itr = std::find(freqHolder.begin(), freqHolder.end(),value);
         if(itr != freqHolder.end())
             itr->incrementFrequency();
-        else
+        else if(isalpha(value))
            freqHolder.push_back(VALUETYPE(1, value));
     }
 
