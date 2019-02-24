@@ -7,8 +7,7 @@ using namespace std;
 #include <string.h>
 #include <ctype.h>
 
-class VALUETYPE 
-{
+class VALUETYPE {
     private:
         int m_nFreq;
         char m_cLetter;
@@ -24,7 +23,7 @@ class VALUETYPE
 };
 
 vector<int> orderedCounter_020(const char * const pPhrase){
-#define kALPHABET 52U
+
     vector<VALUETYPE> freqHolder;
     
     for (char value: string(pPhrase)){

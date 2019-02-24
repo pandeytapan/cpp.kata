@@ -24,8 +24,7 @@ unique_ptr<int[]> orderedCounter_015(const char * const pPhrase){
     nIndex = 0;
     for (nFrequency = nIndex = 0 ; nIndex < strlen(pPhrase); ++nIndex)
         if (isalpha(pPhrase[nIndex]))
-            if (szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26])
-            {
+            if (szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26]){
                 freq [nFrequency++] = szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26];
                 szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26] = 0;
             }

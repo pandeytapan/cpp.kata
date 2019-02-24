@@ -17,12 +17,10 @@ vector<int> orderedCounter_018(const char * const pPhrase){
     nIndex = 0;
     for (nIndex = 0 ; nIndex < strlen(pPhrase); ++nIndex)
         if (isalpha(pPhrase[nIndex]))
-            if (szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26])
-            {
+            if (szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26]){
                 freq.push_back(szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26]);
                 szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26] = 0;
             }
     
     if(freq.empty()) freq.push_back(0);
     return freq;
-}

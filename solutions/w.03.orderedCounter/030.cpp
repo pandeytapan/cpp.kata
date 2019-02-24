@@ -8,7 +8,6 @@ using namespace std;
 #include <ctype.h>
 
 vector<int> orderedCounter_030(const char * const pPhrase){
-#define kALPHABET 52U
     map<char, int> freqHolder;
     
     for (char value: string(pPhrase)){
@@ -29,7 +28,7 @@ vector<int> orderedCounter_030(const char * const pPhrase){
             freqHolder.erase(itr);
         }
     }
-    
+
     if(freq.empty()) freq.push_back(0);
     return freq;
 }
