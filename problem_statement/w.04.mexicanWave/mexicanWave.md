@@ -12,15 +12,9 @@ Fig. 1 People performing Mexican Wave on the big day out, 2013 in Sydney, Austra
 
 # Ground Exercise
 
-In today's exercise, you have to write a function `mexican_wave()` that will take a **single word string** as an argument and returns an array of strings, where each individual string is one wave. 
+In today's exercise &#x1F3C3;, you have to write a function `mexican_wave()` that will take a **single word string** as an argument and returns an array of strings, where each individual string is one wave. 
 
-# Ground Exercise Rules
-1. You have to pass a single word.
-2. All the characters should be lowercase only.
-3. You have to return a sequential container.  e.g. array or vector.
-4. You cannot use any library other than the C/ C++ standard library.
-
-The example below shows how we use the `mexican wave`. e.g. &#x1F447;
+The example below shows how we use the `mexican_wave`. e.g. &#x1F447;
 
 ```C++
 auto wave = mexican_wave("abcde")
@@ -30,7 +24,7 @@ auto wave = mexican_wave("abcde")
 
 # Surface #1
 
-If you have completed **Ground Statement**, then for **surface # 1**  exercise your `mexican_wave` should accept whitespace characters also i.e. it should work with multi-word arguments. e.g. &#x1F447;
+If you have completed **Ground Exercise**, then for **Surface # 1**  exercise your `mexican_wave` should accept whitespace characters also i.e. it should work with multi-word arguments. e.g. &#x1F447;
 
 ```C++
 auto wave = mexican_wave("abcde fg")
@@ -38,7 +32,12 @@ auto wave = mexican_wave("abcde fg")
 # {"Abcde fg", "aBcde fg", "abCde fg", "abcDe fg", "abcdE fg", "abcde Fg", "abcde fG"}
 ```
 
-# Tools 
+#  Rules &#x1F4DC;
+1. All the characters should be lowercase only.
+2. You have to return a sequential container.  e.g. array or vector.
+3. You cannot use any library other than the C/ C++ standard library.
+
+# Tools &#x1F6E0;
 
 To write solutions you can download tools from:
 
@@ -50,7 +49,7 @@ To write solutions you can download tools from:
 |XCode toolkit (MacOS)| IDE with multi language support.|[Download](https://developer.apple.com/xcode/)|
 |Catch2|C++ Test framework|[Download](https://github.com/catchorg/Catch2)| 
 
-# Test Script 
+# Test Script &#x1F489;
 Test Script for this week's problem can be downloaded from **[here](https://1drv.ms/u/s!An6FDnpXbnZ80jeSzHAGqHA7VUj-)**.
 
 ### All the best &#x1F91E;

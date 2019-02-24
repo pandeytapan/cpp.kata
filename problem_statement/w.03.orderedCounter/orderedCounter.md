@@ -6,7 +6,7 @@ Hello &#x1F44B;
 
 # Ground statement
 
-Your problem for this week is to write function named `orderedCounter`. You have to basically count the number of occurrences of each character and return it as a array in order of appearance.
+Your problem :lock: for this week is to write function named `orderedCounter`. You have to basically count the number of occurrences of each character and return it as a array in order of appearance :confused:.
 The function will take a string as the single argument and will return an array. e.g. &#x1F447;
 
 ```
@@ -23,7 +23,7 @@ nFrequency = orderedCounter("Banana");
 /* nFrequency will contain [['B', 1], ['a', 3], ['n', 2]] */
 ```
 
-# Tools 
+# Tools :wrench: :hammer:
 To write solutions you can download tools from:
 
 | Tool | Usage | Download Location |
