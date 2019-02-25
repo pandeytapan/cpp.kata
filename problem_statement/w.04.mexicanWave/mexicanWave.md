@@ -12,9 +12,9 @@ Fig. 1 People performing Mexican Wave on the big day out, 2013 in Sydney, Austra
 
 # Ground Exercise
 
-In today's exercise &#x1F3C3;, you have to write a function `mexican_wave()` that will take a **single word string** as an argument and returns an array of strings, where each individual string is one wave. 
+In today's exercise &#x1F3C3; you have to write a function `mexican_wave()` that will take a **single word string** as an argument and returns an array of strings, where each individual string is one wave. 
 
-The example below shows how we use the `mexican_wave`. e.g. &#x1F447;
+The example below shows how we use  `mexican_wave`. e.g. &#x1F447;
 
 ```C++
 auto wave = mexican_wave("abcde")
@@ -50,7 +50,28 @@ To write solutions you can download tools from:
 |Catch2|C++ Test framework|[Download](https://github.com/catchorg/Catch2)| 
 
 # Test Script &#x1F489;
-Test Script for this week's problem can be downloaded from **[here](https://1drv.ms/u/s!An6FDnpXbnZ80jeSzHAGqHA7VUj-)**.
+Test Script for this week's problem can be downloaded from **[here](https://1drv.ms/u/s!An6FDnpXbnZ80kn5g1XGO_rWprbl)**.
+
+# Sensei Says &#x1F94B;
+**_"What you learn is not what you read or listened to, but rather what you attempted at..."_**
+
+**[Progressive learning](https://en.wikipedia.org/wiki/Progressive_education)** 
+
+
+If you feel the exercise a little bit difficult to solve do not get disheartened. The whole idea behind these programming exercises is not to solve them but rather attempt them.
+
+Try to attempt them in as many ways as possible, you will learn new techniques that will be very helpful to you in the long run especially in the work field.
+
+We will present you with **solution mail/document** also. The solution will show you various ways to solve a problem and why a technique is better than the last one. 
+
+We encourage you to make notes from the solution provided and try to apply what you have learnt in the future exercise.
+
+**What I will gain from these exercises ?**
+1. A better and faster way to solve the exercise.
+1. Reusable components like containers, algorithms etc. that you can apply to the problem at hand rather than designing your own.
+1. Confidence and attitude to solve a problem in new ways, instead of trying monotonous techniques.
+1. Writing the robust and quality software using **[test driven development](https://en.wikipedia.org/wiki/Test-driven_development)**.
+ 
 
 ### All the best &#x1F91E;
 

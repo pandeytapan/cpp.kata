@@ -67,7 +67,7 @@ We encourage you to make notes from the solution provided and try to apply what 
 1. Better and faster way to solve an exercise.
 1. Reusable components like containers, algorithms etc. that you can apply to problem at handrather than designign your own.
 1. Confidence and attitude to solve a problem in new ways, instead of trying monotonus techniques.
-1. Testing and validating solutions using test cases instead of __validating by printing values__.      
+1. Writing the robust and quality software usign **[test driven development](https://en.wikipedia.org/wiki/Test-driven_development)**.      
 
 ### All the best &#x1F91E;
 

@@ -9,7 +9,7 @@ If you have still not attempted, I advise you to write at least a few solutions 
 # Ground Solutions
 To start with, if you are coming from plain C/ C++ &#x1F310; then most possibly you may have written your **First** solution like this &#x1F680;
 
-## Solution 1 
+# Solution 1 
 
 ```C++
 01: #include <string.h>
@@ -62,7 +62,7 @@ At last, we have copied the frequency of individual alphabet from `szAlphabets` 
 ---
 If you see the last example we have written certain comparison codes that are not only difficult to read but can also be a welcome point for bugs if opt written carefully. Whenever possible we should replace such statements with better alternatives. Out next solution shows us how to do it.  Here we go &#x1F680;     
   
-## Solution 2 
+# Solution 2 
 
 ```C++
 01: #include <string.h>
@@ -113,7 +113,7 @@ If you have paid attention to the code then our last two solutions have a major 
 
 Memory management has always been a headache :worried: for many C/ C++ developers in past. They say it is a place where even angels :angel: fear to tread. Well, the good news is that Modern C++ :muscle: has introduced many new technologies to handle this in form of smart pointers. Let's see how here we go &#x1F680; 
 
-## Solution 3 
+# Solution 3 
 
 ```C++
 01: #include <new>
@@ -309,7 +309,7 @@ Using map has helped us to get rid of `VALUETYPE` class, had written incorrectly
 
 Let's now move on to Level Up.
 
-# Level 1 Solution
+# Level 1 Solutions
 
 Our last ground solution has already given up a huge jump to reach level 1. Although quite self-explanatory let's discuss it also. Here we go &#x1F680;
 
@@ -354,11 +354,14 @@ Our last ground solution has already given up a huge jump to reach level 1. Alth
 ```
  
 
-## Solution 6: Commentry
+## Solution 1: Commentry
 
 In this solution, we have to return not only the frequency but also the alphabet in order of occurrence. That means we need a sequential container with heterogeneous values in a pair. The solution is quite easy to write as we have used our beloved vector to store the frequency. The catch is that instead of storing only frequency we have stored both alphabet and frequency as a pair. Again we went shopping at STL and came with **[std::pair](https://docs.microsoft.com/en-us/cpp/standard-library/pair-structure?view=vs-2017)** to do the job. Rest of code is the same except for return type that I guess you would have understood by now.
 
-To test all the ground up and level solutions I have created two helper functions (actually an overloaded one :grin:). They basically compare the values till length lasts and return the count of letters remaining. For a successful match, it should come zero. Here are the functions
+----
+# Other Comments
+
+To test all the ground up and level solutions I have created two helper functions (actually an overloaded one :grin:). They basically compare the values till matching lasts and return the count of letters remaining. For a successful match, it should come zero. 
 
 ```C++
 bool assertIterableEqual (int *pIterable1, int *pIterable2, int nCount){
@@ -379,7 +382,7 @@ bool assertIterableEqual (std::pair<char,int> *pIterable1, std::pair<char,int> *
 }
 ```   
 
-The test script for the solution can be **[found here](https://1drv.ms/u/s!An6FDnpXbnZ80jQILaFIYTUKt1E2)**
+The test script for the solution can be **[found here](https://1drv.ms/u/s!An6FDnpXbnZ80kdag1dqL5jAZLNS)**
 
 Hope you have liked this problem and its solutions. See you next Monday. Till then 
 
