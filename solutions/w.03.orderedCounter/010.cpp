@@ -29,7 +29,5 @@ int * orderedCounter_010(const char * const pPhrase){
                 szFreq [nFrequency++] = szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26];
                 szAlphabets[pPhrase[nIndex]<'a'? pPhrase[nIndex] - 'A': pPhrase[nIndex] - 'a' + 26] = 0;
             }
-
- 
     return szFreq;
 }

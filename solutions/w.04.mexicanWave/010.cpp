@@ -1,19 +1,21 @@
 #include <string.h>
 #include <ctype.h>
-#include <stdlib.h>
+#include <cstdio>
+using namespace std;
 
-char **mexican_wave(const char *pPhrase)
+char** mexican_wave(const char *pPhrase)
 {
+        
     int nIndex = 0;
     int nLen = strlen(pPhrase);
-    char **pMexicanWave = new char *[nLen - 1]();
+    
+    char **pMexicanWave = new char *[nLen ? nLen - 1 :nLen + 1]{const_cast<char *>("")};
 
     while (pPhrase[nIndex])
     {
         pMexicanWave[nIndex] = new char[nLen]();
         strcpy(pMexicanWave[nIndex], pPhrase);
         pMexicanWave[nIndex][nIndex] = toupper(pMexicanWave[nIndex][nIndex]);
-        printf("\n%s", pMexicanWave[nIndex]);
         ++nIndex;
     }
 
