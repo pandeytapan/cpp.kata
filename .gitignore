@@ -2,6 +2,7 @@
 *.d
 *.code-workspace
 .vscode
+.editorconfig
 
 # Compiled Object files
 *.slo
