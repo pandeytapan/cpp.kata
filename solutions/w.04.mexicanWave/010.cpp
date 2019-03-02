@@ -3,7 +3,7 @@
 #include <cstdio>
 using namespace std;
 
-char** mexican_wave(const char *pPhrase)
+char** mexican_wave_010(const char *pPhrase)
 {
         
     int nIndex = 0;
