@@ -1,15 +1,13 @@
-#include <string.h>
 #include <ctype.h>
-#include <cstdio>
 using namespace std;
 
-char** mexican_wave_010(const char *pPhrase)
+char **mexican_wave_010(const char *pPhrase)
 {
-        
+
     int nIndex = 0;
     int nLen = strlen(pPhrase);
-    
-    char **pMexicanWave = new char *[nLen ? nLen - 1 :nLen + 1]{const_cast<char *>("")};
+
+    char **pMexicanWave = new char *[nLen ? nLen - 1 : nLen + 1] { const_cast<char *>("") };
 
     while (pPhrase[nIndex])
     {
