@@ -1,4 +1,5 @@
-bool is_anagram_011(const char *pFirst, const char *pSecond){
+bool is_anagram_011(const char *pFirst, const char *pSecond)
+{
     int nFirstIndex = 0;
 
     while( pFirst[nFirstIndex])

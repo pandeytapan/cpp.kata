@@ -23,8 +23,8 @@ auto result = is_anagram("listen", "silent");
 # true
 ```
 
+# Rules &#x1F4DC;
 
-#  Rules &#x1F4DC;
 1. You have to pass two strings only.
 1. Anagrams are case insensitive.
 1. The return value will be either true or False.
@@ -60,6 +60,7 @@ We will present you with **solution mail/document** also. The solution will show
 We encourage you to make notes from the solution provided and try to apply what you have learnt in the future exercise.
 
 **What I will gain from these exercises ?**
+
 1. A better and faster way to solve the exercise.
 1. Reusable components like containers, algorithms etc. that you can apply to the problem at hand rather than designing your own.
 1. Confidence and attitude to solve a problem in new ways, instead of trying monotonous techniques.
