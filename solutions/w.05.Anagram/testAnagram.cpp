@@ -2,21 +2,25 @@
 #include "../catch.hpp"
 #include "./010.cpp"
 #include "./011.cpp"
+#include "./020.cpp"
 
 TEST_CASE("Test with Zero Letters Word", "[anagram:Ground]")
 {
     REQUIRE(is_anagram_010("","") == true);
     REQUIRE(is_anagram_011("","") == true);
+    REQUIRE(is_anagram_020("","") == true);
 }
 
 TEST_CASE("Test with Single Word", "[anagram:Ground]")
 {
     REQUIRE(is_anagram_010("Listen","Silent") == true);
     REQUIRE(is_anagram_011("Listen","Silent") == true);
+    REQUIRE(is_anagram_020("Listen","Silent") == true);
 }
 
 TEST_CASE("Test with Double Word", "[anagram:Ground]")
 {
     REQUIRE(is_anagram_010("Madam Curie","Radium came") == true);
     REQUIRE(is_anagram_011("Madam Curie","Radium came") == true);
+    REQUIRE(is_anagram_020("Madam Curie","Radium came") == true);
 }

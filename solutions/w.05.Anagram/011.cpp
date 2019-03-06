@@ -1,3 +1,5 @@
+#include <ctype.h>
+
 bool is_anagram_011(const char *pFirst, const char *pSecond)
 {
     int nFirstIndex = 0;
@@ -7,7 +9,7 @@ bool is_anagram_011(const char *pFirst, const char *pSecond)
         int nSecondIndex = 0;
         while(pSecond[nSecondIndex])
         {
-            if((pFirst[nFirstIndex]|32) == (pSecond[nSecondIndex]|32))
+            if(tolower(pFirst[nFirstIndex]) == tolower(pSecond[nSecondIndex]))
                 break;  
             ++nSecondIndex;
         }
