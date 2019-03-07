@@ -1,6 +1,6 @@
-#include <ctype.h>
 #include <algorithm>
 using namespace std;
+
 void sort(char *pSequence)
 {
     std::transform(pSequence, pSequence + strlen(pSequence), pSequence, ::tolower);
@@ -28,8 +28,8 @@ bool is_anagram_020(const char *pFirst, const char *pSecond)
         ++nIndex;
     
     bool bIsMatch = pSortedFirst[nIndex] ==  pSortedSecond[nIndex]; 
-    // delete [] pSortedFirst;
-    // delete [] pSortedSecond;
+    delete [] pSortedFirst;
+    delete [] pSortedSecond;
 
     return bIsMatch;
 }

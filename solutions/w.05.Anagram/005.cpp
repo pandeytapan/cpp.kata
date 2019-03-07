@@ -1,5 +1,3 @@
-#include <ctype.h>
-
 bool is_anagram_005(const char *pFirst, const char *pSecond)
 {
     #define ALPHABETS 26
@@ -11,7 +9,7 @@ bool is_anagram_005(const char *pFirst, const char *pSecond)
     while (pFirst[nIndex])
         ++nFirst[(pFirst[nIndex++]|32) - 'a'];
 
-   nIndex = 0;
+    nIndex = 0;
     while (pSecond[nIndex])
         ++nSecond[(pSecond[nIndex++]|32) - 'a'];
 
@@ -22,6 +20,5 @@ bool is_anagram_005(const char *pFirst, const char *pSecond)
             break;
         ++nIndex;
     }
-
     return nIndex == ALPHABETS;
 }
