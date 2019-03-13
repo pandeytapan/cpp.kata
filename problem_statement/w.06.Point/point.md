@@ -4,7 +4,7 @@
 
 Hello &#x1F44B;
 
-In two-dimensional **[Euclidean](https://en.wikipedia.org/wiki/Euclidean_geometry)** space, a **[point](https://en.wikipedia.org/wiki/Point_(geometry))** is represented by an ordered pair (x, y) of numbers, where the first number conventionally represents the horizontal and is often denoted by x, and the second number conventionally represents the vertical and is often denoted by y. .
+In two-dimensional **[Euclidean](https://en.wikipedia.org/wiki/Euclidean_geometry)** space, a **[point](https://en.wikipedia.org/wiki/Point_(geometry))** is represented by an ordered pair (x,y) of numbers, where the first number conventionally represents the horizontal and is often denoted by x, and the second number conventionally represents the vertical and is often denoted by y. .
 
 # Ground Exercise
 
