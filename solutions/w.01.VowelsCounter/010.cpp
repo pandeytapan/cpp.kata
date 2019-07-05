@@ -1,4 +1,5 @@
 #include <string.h>
+#include <iostream>
 int vowel_counter_010(const char * pPhrase){
 	int nLen = strlen(pPhrase);
 	int nVowels = 0;
@@ -12,4 +13,10 @@ int vowel_counter_010(const char * pPhrase){
 			++nVowels;
 	}
 	return nVowels;
+}
+
+
+int main()
+{
+	std::cout<< "Total Vowels: " << vowel_counter_010("Tapan") << std::endl;
 }
