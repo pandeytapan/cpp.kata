@@ -1,88 +1,61 @@
 ![alt text](http://programmingdays.com/img/62c218d0-fda7-4dd2-b49f-8628130c4c8f.png "programmingDays")
 
-# C++ code kata: Week #1
+# C++ code kata: Week 1️
+## **`Undersanding variables and literals`** 
+[![Solutions](https://img.shields.io/badge/Language-C++17-informational.svg)](https://shields.io/)  [![Solutions](https://img.shields.io/badge/Compiler-G++7-important.svg)](https://shields.io/) 
+[![Solutions](https://img.shields.io/badge/Track-Beginner-yellowgreen.svg)](https://shields.io/)
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [ C++ code kata: Week 1️
+](#c-code-kata-week-1️)
+  - [ **`Undersanding variables and literals`** 
+](#undersanding-variables-and-literals)
+- [ Solutions  
+](#solutions)
+  - [ `01. Age of a Person
+](#01-age-of-a-person)
+    - [` Solution 1: Commentry`
+](#solution-1-commentry)
+
+<!-- /code_chunk_output -->
+
 
 Hello &#x1F44B;
 
-First of all I would like to congratulate you for joining C++ code kata beginner series. Every week in the series you will receive a problem statement for which you have to prepare your own solutions.
+If you have not attempted 💻, I would request you to try your hand over few solutions, for those of you who have written soem solutions here is solution document &#x1F381; for you.
 
-Every Friday we will give you the solutions document that you can use to compare your answers with.
 
-This whole month we will discuss literals, variables, initialization, operators and expression writing. We will follow C++14 standard while writing the answers.
+# Solutions  
+## 01. Age of a Person
 
-# Ground statement
-
-Like any other programming language C++ works with numbers and textual data. You have to write following `literals` and print their value onto screen.
-
-```C++
-// Age of a person
-// Value of Absolute Zero in Celcius
-// Value of PI
-// A bit mask with 3rd bit on and others are off
-// Integer 57005 in hexadecimal
-// 1.8233323443434
-// 33.444444444445555
-// name of capital city of India
-// First alphabet of english
-// First alphabet of hindi language
+```CPP
+01:     std::cout << "Age of a person: " << 78 << std::endl;
+02:     std::cout << "Age of person: " << std::dec << 78 << std::endl;
+03:     printf("Age of person: %u\n", 78);
+04:     fprintf(stdout, "Age of person: %u\n", 78);
 ```
 
-Every informaton or data that you display onto console consumes memory.  You have to calculate how much memory each of these `literals` consume and print it onto screen.
+###` Solution 1: Commentry`
 
-```C++
-// Age of a person
-// Value of Absolute Zero in Celcius
-// Value of PI
-// A bit mask with 3rd bit on and others are off
-// Integer 57005 in hexadecimal
-// 1.8233323443434
-// 33.444444444445555
-// name of capital city of India
-// First alphabet of english
-// First alphabet of hindi language
-```
+In our solutions we have written this statement in four ways let us discuss them one by one:-
 
-# Hints when you are stuck
+We have used [`cout`](http://www.cplusplus.com/reference/iostream/cout/), which is object of ostream class and is associated with standard output device 🖥. 
 
-- [How to display information on screen](https://www.youtube.com/watch?v=sPv0HQ8xOaU&list=PLAE85DE8440AA6B83&index=3)
-- [What is a literal](https://en.wikipedia.org/wiki/Literal_(computer_programming))
-- [How to write an integer literal](https://www.youtube.com/watch?v=bMMcznGQAkw&list=PLWPirh4EWFpGDG3--IKMLPoYrgfuhaz_t&index=25)
-- [How to write a fractional literal](https://www.youtube.com/watch?v=pTHO-2I2g6I&list=PLWPirh4EWFpGDG3--IKMLPoYrgfuhaz_t&index=26)
-- [How to write a string literal](https://www.youtube.com/watch?v=XyCJX5DhVUE&list=PLWPirh4EWFpGDG3--IKMLPoYrgfuhaz_t&index=29)
-- [How to get count of memory consumed by a data value](https://en.wikipedia.org/wiki/Sizeof)
-# Tools 
+Since this class is defined in [standard namespace](https://www.learncpp.com/cpp-tutorial/naming-conflicts-and-the-std-namespace/) we have to prefix `std::` before using cout. 
 
-To write solutions you can download tools from:
+In first technique *see line 01* we have passed a [string literal](https://en.cppreference.com/w/cpp/language/string_literal) followed by age of person. Since age will always be a numeric value and we are under assumption that it will be integral value we have written age as an [integer literal](https://en.cppreference.com/w/cpp/language/integer_literal). 
 
-| Tool | Usage | Download Location |
-|:-----|:-----:|:-----------------:|
-|Visual Studio Code |Lightweight program editor. |[Download](https://code.visualstudio.com/download)|
-|GCC (Linux)|C / C++ Compiler.|[Download](https://gcc.gnu.org/)|
-|MingGW (Windows)| C / C++ Compiler.|[Download](http://www.mingw.org/)|
-|XCode toolkit (MacOS)| IDE with multi language support.|[Download](https://developer.apple.com/xcode/)|
-|Catch2|C++ Test framework|[Download](https://github.com/catchorg/Catch2)| 
+Remember integers can be written in **binary, decimal, octal and headecimal number systems** in C/ C++. We have written here in deciaml number system. 
 
-# Sensai Says
-**_"What you learn is not what you read or listened to, but rather what you attempted at..."_**
-**[Progressive learning](https://en.wikipedia.org/wiki/Progressive_education)** 
+The [<<](http://www.cplusplus.com/reference/ostream/endl/) used here is basically overloaded operator of ostream class  
+</br></br></br>
+[![Get in touch on Messenger](https://img.shields.io/static/v1.svg?label=Ask&nbsp;a&nbsp;Question&message=❓&logo=messenger&style=social)](https://m.me/programmingdays) 
+&nbsp;&nbsp;&nbsp;&nbsp;[![Send me a message on WhatsApp](https://img.shields.io/static/v1.svg?label=Ask&nbsp;a&nbsp;Question&message=❓&color=1ebea5&logo=whatsapp&logoColor=white&labelColor=1ebea5)](https://wa.me/919458176671?text=I%20have%20a%20question.) 
+
+</br></br>
+![Copyright](https://img.shields.io/static/v1.svg?label=C&nbsp;codekata%20©️%20&message=%202019%20programmingDays&labelColor=informational&color=033450) 
 
 
-If you feel the exercise a little bit difficult to solve do not get disheartened. The whole idea behind these programming exercises is not to solve them but rather attempt them.
-
-Try to attempt them in as many ways as possible, you will learn new techniques that will be very helpful to you in longer run especially in work field.
-
-We will present you with **solution mail / document** also. The solution will show you various ways to solve a problem and why a technique is better than last one. 
-
-We encourage you to make notes from the solution provided and try to apply what you have learnt in future exercise.
-
-**What I will gain from these exercises ?**
-1. Better and faster way to solve an exercise.
-1. Reusable components like containers, algorithms etc. that you can apply to problem at handrather than designign your own.
-1. Confidence and attitude to solve a problem in new ways, instead of trying monotonus techniques.
-1. Writing the robust and quality software usign **[test driven development](https://en.wikipedia.org/wiki/Test-driven_development)**.
-
-### All the best &#x1F91E;
-
-
-##### _Still have some questions related to this exercise. Reach us at_
-#####  1. &#x1F4AC; programmingdays (Skype)

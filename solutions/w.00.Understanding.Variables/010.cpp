@@ -8,10 +8,10 @@
 int main (int argc, char *argv[])
 {
     // // Displaying age of  person
-    // std::cout << "Age of a person: " << 78 << std::endl;
-    // std::cout << "Age of person: " << std::dec << 78 << std::endl;
-    // printf("Age of person: %u\n", 78);
-    // fprintf(stdout, "Age of person: %u\n", 78);
+    std::cout << "Age of a person: " << 78 << std::endl;
+    std::cout << "Age of person: " << std::dec << 78 << std::endl;
+    printf("Age of person: %u\n", 78);
+    fprintf(stdout, "Age of person: %u\n", 78);
 
     // Value of absolute zero in celcius
     // std::cout << "Value of absolute zero: " << -273.15F << std::endl;
@@ -57,25 +57,32 @@ int main (int argc, char *argv[])
     // std::cout << std::showbase << std::hex << 57005 << std::endl;
 
     // 1.8233323443434
-    std::cout << 1.8233323443434 << std::endl;
-    std::cout << std::fixed << 1.8233323443434 << std::endl;
-    std::cout << std::hexfloat << 1.8233323443434 << std::endl;
-    std::cout << std::scientific << 1.8233323443434 << std::endl;
-    std::cout << std::defaultfloat << 1.8233323443434 << std::endl;
-    std::cout << std::defaultfloat << 1.8233323443434 << std::endl;
-    std::cout << std::setprecision(13) << 1.8233323443434 << std::endl;
+    // std::cout << 1.8233323443434 << std::endl;
+    // std::cout << std::fixed << 1.8233323443434 << std::endl;
+    // std::cout << std::hexfloat << 1.8233323443434 << std::endl;
+    // std::cout << std::scientific << 1.8233323443434 << std::endl;
+    // std::cout << std::defaultfloat << 1.8233323443434 << std::endl;
+    // std::cout << std::defaultfloat << 1.8233323443434 << std::endl;
+    // std::cout << std::setprecision(13) << 1.8233323443434 << std::endl;
 
-    printf("%f\n", 1.8233323443434F);
-    printf("%.13lf\n", 1.8233323443434);
+    // printf("%f\n", 1.8233323443434F);
+    // printf("%.13lf\n", 1.8233323443434);
 
     // name of capital city of India
-    std::cout << "New Delhi" << std::endl;
-    printf("New Delhi\n");
-    printf("%s", "New Delhi");
-    std::cout.write("New Delhi\n");
-
+    // std::cout << "New Delhi" << std::endl;
+    // printf("New Delhi\n");
+    // printf("%s\n", "New Delhi");
+    // puts("New Delhi");
+    // fprintf(stdout, "New Delhi\n");
     // First alphabet of english
+    // std::cout << (char)65;
+    // std::cout.put('A');
+    // printf("%c",65);
+    // printf("%c",'A');
     // First alphabet of hindi language
-
+    setlocale(LC_CTYPE, "");
+    
+    std::wcout << (wchar_t)0x0905 << std::endl;
+    wprintf(L"%C\n", 0x0905); 
     return EXIT_SUCCESS;
 }
