@@ -4,36 +4,52 @@
 
 Hello &#x1F44B;
 
+First of all I would like to congratulate you for joining C++ code kata beginner series. Every week in the series you will receive a problem statement for which you have to prepare your own solutions.
+
+Every Friday we will give you the solutions document that you can use to compare your answers with.
+
+This whole month we will discuss literals, variables, initialization, operators and expression writing. We will follow C++14 standard while writing the answers.
+
 # Ground statement
 
-Consider you as a data engineer. As a data engineer, your first task is to make vowel recognition dataset. For the exercise, you have to write `vowels_counter()` that will take a string and returns the total number of vowels in it. e.g. &#x1F447;
+Like any other programming language C++ works with numbers and textual data. You have to write following `literals` and print their value onto screen.
 
 ```C++
-auto nCount = vowels_counter("abcde")
-printf("%d", nCount)
-2
+// Age of a person
+// Value of Absolute Zero in Celcius
+// Value of PI
+// A bit mask with 3rd bit on and others are off
+// Integer 57005 in hexadecimal
+// 1.8233323443434
+// 33.444444444445555
+// name of capital city of India
+// First alphabet of english
+// First alphabet of hindi language
 ```
 
-# Surface #1
-
-If you have completed **Ground Statement**, then for **surface # 1**  exercise you have to return the sum of the total number of vowels till it is a single digit. e.g. &#x1F447;
+Every informaton or data that you display onto console consumes memory.  You have to calculate how much memory each of these `literals` consume and print it onto screen.
 
 ```C++
-auto nCSum = vowels_counter("A cup of tea and coffee with sugar cube.")
-printf("%d", nCount)
-5
+// Age of a person
+// Value of Absolute Zero in Celcius
+// Value of PI
+// A bit mask with 3rd bit on and others are off
+// Integer 57005 in hexadecimal
+// 1.8233323443434
+// 33.444444444445555
+// name of capital city of India
+// First alphabet of english
+// First alphabet of hindi language
 ```
 
-# Surface #2
+# Hints when you are stuck
 
-To reach **surface # 2** you have to return the sum of the total number of vowels in each substring. "abba" will have substrings "a, ab, bb, ba, abb, bba, abba", and the number of vowels in each substring will be 1 1, 0, 1, 1, 1, 2 and the total number will be sum of all vowels presence e.g. &#x1F447; 
-
-```C++
-auto nCSum = vowels_counter("abba")
-printf("%d", nCount)
-7
-```
-
+- [How to display information on screen](https://www.youtube.com/watch?v=sPv0HQ8xOaU&list=PLAE85DE8440AA6B83&index=3)
+- [What is a literal](https://en.wikipedia.org/wiki/Literal_(computer_programming))
+- [How to write an integer literal](https://www.youtube.com/watch?v=bMMcznGQAkw&list=PLWPirh4EWFpGDG3--IKMLPoYrgfuhaz_t&index=25)
+- [How to write a fractional literal](https://www.youtube.com/watch?v=pTHO-2I2g6I&list=PLWPirh4EWFpGDG3--IKMLPoYrgfuhaz_t&index=26)
+- [How to write a string literal](https://www.youtube.com/watch?v=XyCJX5DhVUE&list=PLWPirh4EWFpGDG3--IKMLPoYrgfuhaz_t&index=29)
+- [How to get count of memory consumed by a data value](https://en.wikipedia.org/wiki/Sizeof)
 # Tools 
 
 To write solutions you can download tools from:
@@ -45,10 +61,6 @@ To write solutions you can download tools from:
 |MingGW (Windows)| C / C++ Compiler.|[Download](http://www.mingw.org/)|
 |XCode toolkit (MacOS)| IDE with multi language support.|[Download](https://developer.apple.com/xcode/)|
 |Catch2|C++ Test framework|[Download](https://github.com/catchorg/Catch2)| 
-
-# Test Script 
-Test Script for this week's problem can be downloaded from **[here](https://1drv.ms/u/s!An6FDnpXbnZ80jsi7yywsYq-lA_a)**.
-
 
 # Sensai Says
 **_"What you learn is not what you read or listened to, but rather what you attempted at..."_**
