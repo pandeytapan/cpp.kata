@@ -14,12 +14,12 @@ int main (int argc, char *argv[])
     fprintf(stdout, "Age of person: %u\n", 78);
 
     // Value of absolute zero in celcius
-    // std::cout << "Value of absolute zero: " << -273.15F << std::endl;
-    // std::cout << "Value of absolute zero: " << std::setprecision(7) << -273.15F << std::endl;
-    // std::cout << "Value of absolute zero: " << std::fixed << -273.15F << '\n'
-    //           << "Value of absolute zero: " << std::scientific << -273.15F << '\n'
-    //           << "Value of absolute zero: " << std::hexfloat << -273.15F << '\n'
-    //           << "Value of absolute zero: " << std::defaultfloat << -273.15F << '\n';
+    std::cout << "Value of absolute zero: " << -273.15F << std::endl;
+    std::cout << "Value of absolute zero: " << std::setprecision(7) << -273.15F << std::endl;
+    std::cout << "Value of absolute zero: " << std::fixed << -273.15F << '\n'
+              << "Value of absolute zero: " << std::scientific << -273.15F << '\n'
+              << "Value of absolute zero: " << std::hexfloat << -273.15F << '\n'
+              << "Value of absolute zero: " << std::defaultfloat << -273.15F << '\n';
 
     // printf("Value of absolute zero: %f\n", -273.15F);
     // printf("Value of absolute zero: %e\n", -273.15F);
@@ -28,27 +28,27 @@ int main (int argc, char *argv[])
 
     // Value of PI
 
-    // std::cout << 22/7 << std::endl;
-    // std::cout << 22.0/7.0 << std::endl;
-    // std::cout << 22./7 << std::endl;
-    // std::cout << 22/7. << std::endl;
-    // std::cout << 22.0F/7.0 << std::endl;
+    std::cout << 22/7 << std::endl;
+    std::cout << 22.0/7.0 << std::endl;
+    std::cout << 22./7 << std::endl;
+    std::cout << 22/7. << std::endl;
+    std::cout << 22.0F/7.0 << std::endl;
 
-    // std::cout << std::fixed << 22./7 << std::endl;
-    // std::cout << std::scientific << 22/7. << std::endl;
-    // std::cout << std::defaultfloat << 22.0F/7.0 << std::endl;
-    // std::cout << std::hexfloat << 3.14 << std::endl;
+    std::cout << std::fixed << 22./7 << std::endl;
+    std::cout << std::scientific << 22/7. << std::endl;
+    std::cout << std::defaultfloat << 22.0F/7.0 << std::endl;
+    std::cout << std::hexfloat << 3.14 << std::endl;
 
-    // printf("%f\n", 22 / 7);
-    // printf("%f\n", 22. / 7);
-    // printf("%.6f\n", 22. / 7);
-    // std::cout << M_PI;
+    printf("%f\n", 22 / 7);
+    printf("%f\n", 22. / 7);
+    printf("%.6f\n", 22. / 7);
+    std::cout << M_PI;
 
     // printing the bit wise value
-    // std::cout << 0b0000'0000'0000'1000 << std::endl;
-    // std::cout << 8 << std::endl;
-    // std::cout << 010 << std::endl;
-    // std::cout << 0x8 << std::endl;
+    std::cout << 0b0000'0000'0000'1000 << std::endl;
+    std::cout << 8 << std::endl;
+    std::cout << 010 << std::endl;
+    std::cout << 0x8 << std::endl;
 
     // Integer 57005 in hexadecimal
     // std::cout << std::hex << 57005 << std::endl;
