@@ -2,7 +2,10 @@
 
 int main (int argc, char * argv[])
 {
-    int age = 21;
-    std::cout << age << std::endl;     
+    __int8 age = 21;
+    
+    std::cout <<  unsigned(age) << std::endl;     
+    std::cout << sizeof(age) << std::endl;
+
     return EXIT_SUCCESS;
 }

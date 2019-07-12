@@ -20,135 +20,282 @@ If you have not attempted 💻, I would request you to try your hand over few so
 
 # Solutions  
 
-## 01. Statement 01 :Storing value for 1 billion
+## 01. Statement 01 :Storing value for 1 billion and 3 billion
 
+```cpp
+01: #include <iostream>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     int one_billion = 1'000'000'000;
+06:     std::cout << "One billion: " << one_billion << std::endl;
+07:     int three_billion = 3'000'000'000;
+08:     std::cout << "Three billion: " << three_billion << std::endl;
+09:
+10:     return EXIT_SUCCESS;
+11: }
 
-```CPP
-1: #include <iostream>
-2:
-3: int main (int argc, char * argv[])
-4: {
-5:     int one_billion = 1000000000;
-6:     std::cout << "One billion: " << one_billion << std::endl;
-7:
-8:     return EXIT_SUCCESS;
-9: }
 ```
 
 Console Output
+
 ```con
 One billion: 1000000000
+Three billion: -1294967296
 ```
 
 ### Solution 1: Commentry
 
-In our solutions we have written this statement in four ways let us discuss them one by one:-
+In the program above the value for 3 billion is coming incorrect. Let's try to understand this and come up with 2 solutions.
 
-line 01
+### Solution 1. A : Increase the amount of memory
 
----
-We have used [cout](http://www.cplusplus.com/reference/iostream/cout/), which is object of ostream class and is associated with standard output device 🖥.
-Since this class is defined in [standard namespace](https://www.learncpp.com/cpp-tutorial/naming-conflicts-and-the-std-namespace/) we have to prefix `std::` before using `cout`.
+It seems that value `3'000'000'000` takes more memory than `1'000'000'000`. 
+We have stored `1'000'000'000` as `int` i.e. in 4 bytes of memory. 
 
-In first technique *see line 01* we have passed a [string literal](https://en.cppreference.com/w/cpp/language/string_literal) followed by age of person. Since age will always be a numeric value and we are under assumption that it will be integral value we have written age as an [integer literal](https://en.cppreference.com/w/cpp/language/integer_literal). 
+We can increase this memory storage to 8 bytes by using either `long long` or `__int64`. Let's change it to 8 bytes and see the result.
 
-Remember integers can be written in **binary, decimal, octal and headecimal number systems** in C/ C++. Age is best expressed in decimal number system that we have used here.
+```cpp
+01: #include <iostream>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     int one_billion = 1'000'000'000;
+06:     std::cout << "One billion: " << one_billion << std::endl;
+07:     __int64 three_billion = 3'000'000'000;
+08:     std::cout << "Three billion: " << three_billion << std::endl;
+09:
+10:     return EXIT_SUCCESS;
+11: }
 
-The [<<](https://docs.microsoft.com/en-us/cpp/standard-library/overloading-the-output-operator-for-your-own-classes?view=vs-2019) used here is known as **insertion operator** is basically an overloaded operator of ostream class to handle various kind of `literals`.  
+```
 
-At last the [std::endl](https://en.cppreference.com/w/cpp/io/manip/endl) is a manipulator that inserts a new line character in the stream.
+Console Output
 
-line 02
+```con
+One billion: 1000000000
+Three billion: 3000000000
+```
 
----
+Voila! ✨ We got correct result. But we have to pay the price. Let's see how by discussing this little code below 👇
 
-Same as **line 01**, but the only change here is the [std::dec](https://en.cppreference.com/w/cpp/io/manip/hex), which is a manipulator that modifies the default numeric base for integer I/O. It is useful when you have to represent an integer entity in a particular base.
+```cpp
+01: #include <iostream>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     int one_billion = 1'000'000'000;
+06:     __int64 three_billion = 3'000'000'000;
+07:  
+08:     std::cout << sizeof(one_billion) << std::endl;
+09:     std::cout << sizeof(three_billion) << std::endl;
+10:     std::cout << sizeof(1'000'000'000) << std::endl;
+11:     std::cout << sizeof(3'000'000'000) << std::endl;
+12:
+13:     return EXIT_SUCCESS;
+14: }
+```
 
-This is not quite useful here as we are already in same base.
+Console Output
 
-line 03
+```con
+One billion: 1000000000
+Three billion: 3000000000
+4
+8
+4
+4
+```
 
----
+As evident from the output both `1'000'000'000` and `3'000'000'000` as __integer literals__ need only 4 bytes of memory. So what is problem with the statement:-
 
-This solution is interesting in sense that some of the new budding C++ programmers don't even consider it a C++ solution. C language is subset of C++ and [printf](http://www.cplusplus.com/reference/cstdio/printf/) is a valid C++ function for C style I/O. It takes a [format string with specifier](http://www.cplusplus.com/reference/cstdio/printf/#parameters) that is required for output conversion. 
+```cpp
+int three_billion = 3'000'000'000;
+```
 
-Since it is a function, the arguments are passed visibly (unlike Object orientation), and each is separated by a `comma (,)` operator.
+If `3'000'000'000` can be stored in 4 bytes then why it is failing when we are using `int` dataype.
 
-Out of all `format specifiers` for integers the `%u` is most appripriate here 😕.
+To understand this let us see memory representation of 1 billion and 3 billion
 
-line 04
+1 billion as stored in 4 bytes i.e. 32 bits
 
----
+```bin
+MSB                                 LSB
+🔽
+‭0011 1011 1001 1010 1100 1010 0000 0000‬
+```
 
-Same as **line 03**, but the only change here is [fprintf](https://en.cppreference.com/w/cpp/io/c/fprintf) again a valid C++ function for C style I/O. It takes an additional argument [stream](http://www.cplusplus.com/reference/cstdio/printf/#parameters) representing the [FILE](http://www.cplusplus.com/reference/cstdio/FILE/) object, basically representing where the output will go.
+3 billion as stored in 4 bytes i.e. 32 bits
 
-## 02. Value of absolute zero in celcius
+```bin
+MSB
+🔽                                 LSB
+‭1011 0010 1101 0000 0101 1110 0000 0000‬
+```
 
-```CPP
-01:     std::cout << "Value of absolute zero: " << -273.15F << std::endl;
-02:     std::cout << "Value of absolute zero: " << std::fixed << -273.15F << '\n'
-03:               << "Value of absolute zero: " << std::scientific << -273.15F << '\n'
-04:               << "Value of absolute zero: " << std::hexfloat << -273.15F << '\n'
-05:               << "Value of absolute zero: " << std::defaultfloat << -273.15F << '\n';
-06:     printf("Value of absolute zero: %f\n", -273.15F);
-07:     printf("Value of absolute zero: %e\n", -273.15F);
-08:     printf("Value of absolute zero: %g\n", -273.15F);
+As you can see that  `Most signinficant bit` [(MSB)](https://en.wikipedia.org/wiki/Bit_numbering#Most_significant_bit) is 1 for 3 billion. This bit in an `int` type is treated as [sign bit](https://en.wikipedia.org/wiki/Sign_bit). When it is 1 the whole value is treated as negative. That is why in our original answer we are getting value for `three_billion` as `-1294967296`.
 
+### Solution 1.B : Change storage specifier
+
+The correct implementation is to treat MSB as value bit. `int` by default differentiates  values as positive and negative on basis of if MSB is 0 or 1. We can change this behaviour by changing [type specifier](https://en.wikipedia.org/wiki/C_syntax#Type_qualifiers).
+
+Let's see what the correct implementation will be:
+
+```C++
+01: #include <iostream>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     int one_billion = 1'000'000'000;
+06:     std::cout << "One billion: " << one_billion << std::endl;
+07:     unsigned three_billion = 3'000'000'000;
+08:     std::cout << "Three billion: " << three_billion << std::endl;
+09:
+10:     std::cout << sizeof(one_billion) << std::endl;
+11:     std::cout << sizeof(three_billion) << std::endl;
+12:     std::cout << sizeof(int) << std::endl;
+13:     std::cout << sizeof(unsigned) << std::endl;
+14:
+15:     return EXIT_SUCCESS;
+16: }
+```
+
+Console Output
+
+```con
+One billion: 1000000000
+Three billion: 3000000000
+4
+4
+4
+4
+```
+
+See how in __line 07__ we have used [unsigned](https://www.cs.utah.edu/~germain/PPS/Topics/unsigned_integer.html) type specifier. It basically treats the sign bit as value bit thus adds it to value while giving result back  i.e. `3'000'000'000` ✌️ 😃.
+
+## 02. What's wrong with human age
+
+We have written code like this 👇
+
+```cpp
+1: #include <iostream>
+2:
+3: int main (int argc, char * argv[])
+4: {
+5:     int age = 21;
+6:     std::cout << age << std::endl;
+7:     return EXIT_SUCCESS;
+8: }
+```
+
+Console Output
+
+```con
+21
 ```
 
 ### Solution 2: Commentry
 
-In our solutions we have written this statement in four ways let us discuss them one by one:-
+Age of a human can never exceed three decimal digits and that also rarely beyond 140 or 150 😮, such a range of value can be stores in 1 byte. Considering this fact, using `int` as storage type specifier isn't good enough as it takes 4 bytes (those who consider memory as a precious resource 💰). Lets see what are the possible solutions 👇
 
-line 01
+### Solution 2.A : Decrease the amount of memory
 
----
-Value of absolute zero in celcius is a [fractional number](http://www.montereyinstitute.org/courses/DevelopmentalMath/COURSE_TEXT_RESOURCE/U03_L1_T1_text_final.html), that can be best represented as a [floating point number](https://floating-point-gui.de/formats/fp/).
+WE can decrese the amount of memory required by changing the storage type specifier. Integer storege class comes in following flavours
 
-Floating point notation is how fractional numbers are represented in computer 💻. More about it you can read [here](https://floating-point-gui.de/formats/fp/#how-floating-point-numbers-work).
+| Type | Memory Usage |
+|:-----|:-----:|
+|__int64| 64 bit (8 bytes)|
+|__int32| 32 bit (4 bytes)|
+|__int16| 16 bit (2 bytes)|
+|__int8| 8 bit (1 byte)|
 
-Now we have written value for absolute zero as `-273.15F`. Apart from integers, floating point values are second type of literals used in computer programming. You must be wondering why is that `F` suffixed to value.
+We can decrease the memory storage to 1 byte by using `__int8`. Let's change it and see the result.
 
-It is basically to round off the value to single precision. We will discuss more on this when we are discussing the datatype, variables and memory.
+```cpp
+01: #include <iostream>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     __int8 age = 21;
+06:
+07:     std::cout <<  unsigned(age) << std::endl;
+08:     std::cout <<  sizeof(age) << std::endl;
+09:
+10:     return EXIT_SUCCESS;
+11: }
+```
 
-line 02 to 05
+Console Output
 
----
+```con
+21
+1
+```
 
-Same as **line 01**, but the only change here is the [std::fixed and three more manipulators](https://en.cppreference.com/w/cpp/io/manip/hex), prefixed and they modify the default formatting for floating-point input/output. It is useful when you have to represent an integer entity in a particular base.
+Voila! ✨ We are at correct result. The `age` varialbe is now taking 1 byte of memory instead of 4 bytes as earlier. We have [typecasted](http://www.cplusplus.com/doc/oldtutorial/typecasting/) the value to `unsigned` because `std::cout` treats every 8 bit value as character. Typecasting it to `unsigned` gives back a printable numerical value.
 
-This is not quite useful here but we can put these to use when dealing with irrational numbers like value of mathematical constant likePi.
+## 02. What's wrong with human age
 
-line 06 to 08
+We have written code like this 👇
 
----
+```cpp
+1: #include <iostream>
+2:
+3: int main (int argc, char * argv[])
+4: {
+5:     int age = 21;
+6:     std::cout << age << std::endl;
+7:     return EXIT_SUCCESS;
+8: }
+```
 
-Here we have used [printf](http://www.cplusplus.com/reference/cstdio/printf/) and have provided various `format specifier` controlling the value conversion for output stream. Lets see when we need them
+Console Output
 
-- %f is used to display decimal point in lowercase.
-- %e is used for scientific notation (mantissa/exponent), lowercase.
-- %g will choose either of former two whichever is appropriate.
-
-## 03. Value of PI
-
-```CPP
-01:     std::cout << M_PI;
+```con
+21
 ```
 
 ### Solution 3: Commentry
 
-Let us discuss our solution:-
+Age of a human can never exceed three decimal digits and that also rarely beyond 140 or 150 😮, such a range of value can be stores in 1 byte. Considering this fact, using `int` as storage type specifier isn't good enough as it takes 4 bytes (those who consider memory as a precious resource 💰). Lets see what are the possible solutions 👇
 
-line 01
+### Solution 3.A : Decrease the amount of memory
 
----
-We may be thinking to do some mathematical computation like dividing 22 by 7 times or taking value as `3.14`, but both of these approaches are wrong since they depend upon the person writing the code and if some one else makes use of it that person has to make sure that value of PI is correct.
+WE can decrese the amount of memory required by changing the storage type specifier. Integer storege class comes in following flavours
 
-Instead of this the best way is to ask language itself for the value of Pi. To do that you have to define constant `_USE_MATH_DEFINES` and include `cmath` header. `cmath` defines Pi as `M_PI` that we have used in our solution.
+| Type | Memory Usage |
+|:-----|:-----:|
+|__int64| 64 bit (8 bytes)|
+|__int32| 32 bit (4 bytes)|
+|__int16| 16 bit (2 bytes)|
+|__int8| 8 bit (1 byte)|
 
+We can decrease the memory storage to 1 byte by using `__int8`. Let's change it and see the result.
+
+```cpp
+01: #include <iostream>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     __int8 age = 21;
+06:
+07:     std::cout <<  unsigned(age) << std::endl;
+08:     std::cout <<  sizeof(age) << std::endl;
+09:
+10:     return EXIT_SUCCESS;
+11: }
+```
+
+Console Output
+
+```con
+21
+1
+```
+
+Voila! ✨ We are at correct result. The `age` varialbe is now taking 1 byte of memory instead of 4 bytes as earlier. We have [typecasted](http://www.cplusplus.com/doc/oldtutorial/typecasting/) the value to `unsigned` because `std::cout` treats every 8 bit value as character. Typecasting it to `unsigned` gives back a printable numerical value.
 
 >Hope you have liked the solutions and must have learnt some thing. Rest of the answers will be available to you in part 2 and 3 of this answer sheet.
-
 >If you still have questions fell fee to connect. We will be happy to answer your questions.
 
 </br></br></br>
@@ -158,4 +305,4 @@ Instead of this the best way is to ask language itself for the value of Pi. To d
 
 ---
 </br></br>
-![Copyright](https://img.shields.io/static/v1.svg?label=C&nbsp;codekata%20©️%20&message=%202019%20programmingDays&labelColor=informational&color=033450) 
+![Copyright](https://img.shields.io/static/v1.svg?label=C&nbsp;codekata%20©️%20&message=%202019%20programmingDays&labelColor=informational&color=033450)
