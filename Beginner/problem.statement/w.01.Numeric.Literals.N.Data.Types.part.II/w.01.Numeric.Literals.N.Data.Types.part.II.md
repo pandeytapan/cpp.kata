@@ -3,7 +3,7 @@
 
 
 # C++ code kata: Week 3
-# **`Arithmetic operations in C++`** 
+# **`Arithmetic operaotrs and expressions`** 
 [![Solutions](https://img.shields.io/badge/Language-C++17-informational.svg)](https://shields.io/)  [![Solutions](https://img.shields.io/badge/Compiler-G++7-important.svg)](https://shields.io/) [![Solutions](https://img.shields.io/badge/Track-Beginner-yellowgreen.svg)](https://shields.io/)
 
 ## Contents
@@ -13,17 +13,14 @@
 <!-- code_chunk_output -->
 
 - [C++ code kata: Week 3](#C-code-kata-Week-3)
-- [**`Arithmetic operations in C++`**](#Arithmetic-operations-in-C)
+- [**`Arithmetic operaotrs and expressions`**](#Arithmetic-operaotrs-and-expressions)
   - [Contents](#Contents)
   - [Kata this week](#Kata-this-week)
-    - [Numeric literals in C++](#Numeric-literals-in-C)
+    - [Arithmetic operators in C++](#Arithmetic-operators-in-C)
+    - [Other mathematical recepies in C++](#Other-mathematical-recepies-in-C)
     - [Numeric types in C++](#Numeric-types-in-C)
-    - [Assignment operator](#Assignment-operator)
   - [Ground Statement](#Ground-Statement)
     - [Statement 1](#Statement-1)
-    - [Statement 2](#Statement-2)
-    - [Statement 3](#Statement-3)
-    - [Statement 4](#Statement-4)
   - [Hints and Study Materials to solve the Katas](#Hints-and-Study-Materials-to-solve-the-Katas)
   - [- How to write a variable in C++](#How-to-write-a-variable-in-C)
   - [## Tools](#Tools)
@@ -33,22 +30,43 @@
 
 Hello &#x1F44B;
 
-Great to see you again 👍. This week we are going to practice following elements of C++ in our code kata 👇
+Nice to see you again 😀. This week we are going to practice more of arithmetic elements provided by C++ in our code kata 👇
 
 ## Kata this week
 
-This week we are going to practice with various numeric types in C++. we will try to understand how much memory storage a numeric literal requires and what various `datatypes` C++ provides to store them.  
+This week we are going to practice with various arithmetic operators and expressions in C++. We will try to understand how much memory storage a numeric literal requires and what various `datatypes` C++ provides to store them.  
 
-### Numeric literals in C++
+### Arithmetic operators in C++
 
-C++ defines the following numeric literals:-
-| Number | Type | Comment |
-|:-----|:-----:|:-----------------:|
-|10 |Integer |Numeric values without fractional part are integers. |
-|-10|Integer|Integers can be positive or negative.|
-|0.5|Floating Point|Numeric value with the fractional part is floating point. These can be single precision or double precision values.|
-|2.96E-2| Floating Point|Floating point values in exponential notation. 2.96 / 100 = 0.0296|
-Numeric literals can be written in binary, decimal, hexadecimal and octal notation.
+C++ defines following arithmetic operators:-
+| Operator  | Usage | Example| Return Value |
+|:-----:|:-----|-----------------:|-:|
+|+|Represent a positive numerical value. | +2|2|
+| |Adds two numerical values.|5 + 2, 12.4 + 45.89|7, 58.29|
+|-|Represent a negative numerical value. | -89| -89|
+| |Subtract two numerical values.|13 - 5, 62.4 - 1.56|8, 60.84|
+|*|Multiplies two numerical values|45 * 23|1035|
+|/|Division between two numerical values (When both are integers)| 5 / 2|2|
+|/|Division between two numerical values (When either is integer)| 5.0 / 2|2.5|
+|%|Reminder of a floor divison| 5 % 2|1|
+
+**Output of arithmetic operators is always a numerical value.**
+
+### Other mathematical recepies in C++
+
+Many other mathematical operations like calculating power or square root are not built into language but are available as functions in header `cmath` or header file `math.h`. 
+
+Some of the functions are:-
+
+| function  | Usage |
+|:-----|:-----|
+|pow (x, y)|Returns x raised to the power y.|
+|sqrt (x)|Returns square root of x.|
+|sin (x)|Sine of x. (x is in radians)|
+|cos (x)|cosine of x. (x is in radians)|
+|tan (x)|tangent of x. (x is in radians)|
+|abs (x)|absolute value \| x \| |
+
 
 ### Numeric types in C++
 
@@ -60,114 +78,51 @@ Numeric literals can be written in binary, decimal, hexadecimal and octal notati
 |float, __int32, int, unsigned int, long, unsigned long|4 bytes.|
 |double, __int64, long double, long long|8 bytes.|
 
-### Assignment operator
-
-The assignment operator is basically part of the assignment statement. Its job is to update the contents of the memory location.
-
-It is written as:-
-
-*memory_location  **=**  expression*;
-
-In the above statement:-
-
-- **memory location** is the unique location where value gets updated. It is mostly referred to using an identifier known as a variable. Also known as **lvalue**, this should be assignable. The important thing here is to choose the amount of memory we want to allocate.
-
-- **expression** is any combination of operators and operands that produces a valid result, such that it can be assigned to **lvalue**. This is also known as **rvalue**. On our case, it will be numeric literals for now.
-
-- **=** is assignment operator whose job is to update `lvalue`. 
-
-> ℹ️ Check links giving you information on what is variable and how to assign value to a variable in `hints` section.
-
 ## Ground Statement
 
 ---
 
+`Ground Statement` are small programming exercises for you to play ⚾️ with:
+
 ### Statement 1
 
-Suppose you have an integer variable that stores value for one billion and displays it onto the screen. See below 👇
+**1.** What will be the value of mystery after statement at line 3 :-
 
 ```C++
-1: #include <iostream>
-2:
-3: int main (int argc, char * argv[])
-4: {
-5:     int one_billion = 1000000000;
-6:     std::cout << "One billion: " << one_billion << std::endl;
-7:
-8:     return EXIT_SUCCESS;
-9: }
+01. __int8 mystery = 1
+02. mystery = 1 - 2 * mystery
+03. mystery = mystery + 1
 ```
 
-```C++Con
-One billion: 1000000000
+**2.** Write following mathematical equations as C++ statements:-
+
+$$A = \pi r^2$$ 
+$$A = \frac{(b_1 + b_2)h}{2}$$ 
+$$A = b(1+\frac{r}{100})^n$$
+$$ i = \sqrt{a^2+b^2}$$
+
+**3.** Write following python statements in mathematical notation.
+```python
+a. dm = m * (sqrt(1 + v / c) / sqrt(1 - v / c) - 1)
+b. volume = pi * r * r * h
+c. volume = 4 * pi * r ** 3 / 3
+d. z = sqrt(x * x + y * y)
+```   
+
+**4.** What are the values of the following expressions? In each line, assume that
+```python
+x = 2.5
+y = -1.5
+m = 18
+n = 4
+
+a. x + n * y - (x + n) * y
+b. m // n + m % n
+c. 5 * x - n / 5
+d. 1 - (1 - (1 - (1 - (1 - n))))
+e. sqrt(sqrt(n))  
 ```
 
-What will be the output if you change `line 05` like this? Please support your answer with an explanation.
-
-```C++
-5:     int three_billion = 3000000000;
-```
-
-If we have to store value `3,000,000,000` into memory what size of an integer will be required?
-
-### Statement 2
-
-The [oldest human](https://en.wikipedia.org/wiki/Oldest_people) as per records lived up to the age of 122. Considering that fact, what is the problem with `line 05` in code written below 👇
-
-```C++
-1: #include <iostream>
-2:
-3: int main (int argc, char * argv[])
-4: {
-5:     int age = 21;
-6:     std::cout << age << std::endl;
-7:     return EXIT_SUCCESS;
-8: }
-
-```
-
-### Statement 3
-
-Revisiting our first problem, someone changed the code like this 👇
-
-```C++
-
-1: #include <iostream>
-2:
-3: int main (int argc, char * argv[])
-4: {
-5:     unsigned three_billion = 3000000000;
-6:     std::cout << "Three billion: " << three_billion << std::endl;
-7:
-8:     return EXIT_SUCCESS;
-9: }
-```
-
-```C++Con
-Three billion: 3000000000
-```
-
-Why it is coming correct. Try to support your answer with an explanation.
-
-
-### Statement 4
-
-Area of a circle is can be computed as follows. See below 👇
-
-```C++
-01: #define _USE_MATH_DEFINES
-02:
-03: #include <iostream>
-06: #include <cmath>
-07:
-08: int main (int argc, char *argv[])
-09: {
-10:     area  = M_PI * radius * radius;
-11:     return EXIT_SUCCESS;
-12: }
-```
-
-What `datatype` you will prefer to store the value of `radius` and `area`?
 
 ## Hints and Study Materials to solve the Katas
 

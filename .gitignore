@@ -3,7 +3,7 @@
 *.code-workspace
 .vscode
 .editorconfig
-
+.res
 # Compiled Object files
 *.slo
 *.lo
