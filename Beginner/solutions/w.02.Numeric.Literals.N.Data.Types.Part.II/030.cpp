@@ -2,14 +2,8 @@
 
 int main (int argc, char * argv[])
 {
-    auto three_billion = 3'000'000'000;
-
-    std::cout << "Three billion: " << three_billion << std::endl;
-    
-    std::cout << sizeof(3'000'000'000) << std::endl;
-    std::cout << sizeof(three_billion) << std::endl;
-    
-    std::cout << std::boolalpha << std::is_same<decltype(three_billion),unsigned long>::value;
+    std::cout <<(unsigned) 3 * 1'000 * 1'000 *1'000 << std::endl;
+    std::cout << 3.0 * 1'000 * 1'000 *1'000 << std::endl;
 
     return EXIT_SUCCESS;
 }
