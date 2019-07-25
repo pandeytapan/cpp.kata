@@ -280,38 +280,167 @@ For all of the solutions below refer to the following table discussing precedenc
 
 ```cpp
 01: #include <cstdlib>
-02: #include <cmath>
-03:
-04: int main (int argc, char * argv[])
-05: {
-06:     double x = 2.5;
-07:     double y = -1.5;
-08:     int m = 18;
-09:     int n = 4;
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     double x = 2.5;
+06:     double y = -1.5;
+07:     int n = 4;
+08:
+09:     x + n * y - (x + n) * y;
 10:
-11:     x + n * y - (x + n) * y;
-12:
-13:     return EXIT_SUCCESS;
-14: }
-15:
+11:     return EXIT_SUCCESS;
+12: }
 ```
 
 The expression will get solved as follows:-
 
-|        expression         |         temporary          |
-| ------------------------- | -------------------------- |
-| x + n \* y - (x + n) \* y |                            |
-| x + n * y - *temp1* * y   | temp1 (6.5)                |
-| x + *temp2* - *temp1* * y | temp1 (6.5), temp2(-6)     |
-| x + *temp2* - *temp3*     | temp3 (-9.75), temp2(-6)   |
-| *temp4* - *temp3*         | temp3 (-9.75), temp4(-3.5) |
-|                           |                            |
-|                           |                            |
-|                           |                            |
-|                           |                            |
-|                           |                            |
+|        expression         |         temporary         |
+| ------------------------- | ------------------------- |
+| x + n \* y - (x + n) \* y |                           |
+| x + n * y - *temp1* * y   | temp1 (6.5)               |
+| x + *temp2* - *temp1* * y | temp1 (6.5), temp2(-6)    |
+| x + *temp2* - *temp3*     | temp3 (9.75), temp2(-6)   |
+| *temp4* - *temp3*         | temp3 (9.75), temp4(-3.5) |
+| 6.25                      |                           |
+
+- ### Solution 4.b: Expression #2
+
+```cpp
+01: #include <cstdlib>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     int m = 18;
+06:     int n = 4;
+07:
+08:     m / n + m % n;
+09:
+10:     return EXIT_SUCCESS;
+11: }
+```
+
+The expression will get solved as follows:-
+
+|    expression     |      temporary      |
+| ----------------- | ------------------- |
+| m / n + m % n     |                     |
+| *temp1* + m % n   | temp1 (4)           |
+| *temp1* + *temp2* | temp1 (4), temp2(2) |
+| 6                 |                     |
+
+- ### Solution 4.c: Expression #3
+
+```cpp
+01: #include <cstdlib>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     double x = 2.5;
+06:     int n = 4;
+07:
+08:     5 * x - n / 5;
+09:
+10:     return EXIT_SUCCESS;
+11: }
+```
+
+The expression will get solved as follows:-
+
+|    expression     |          temporary          |
+| ----------------- | --------------------------- |
+| 5 \* x - n / 5    |                             |
+| *temp1* - n / 5   | temp1 (12.500000)           |
+| *temp1* - *temp2* | temp1 (12.500000), temp2(0) |
+| 12.500000         |                             |
+
+- ### Solution 4.d: Expression #4
+
+```cpp
+01: #include <cstdlib>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     int n = 4;
+06:
+07:     1 - (1 - (1 - (1 - (1 - n))));
+08:
+09:     return EXIT_SUCCESS;
+10: }
+
+```
+
+The expression will get solved as follows:-
+
+|           expression            | temporary |
+| ------------------------------- | --------- |
+| 1 - (1 - (1 - (1 - (1 - n))))   |           |
+| 1 - (1 - (1 - (1 - \*temp1\*))) | temp1(-3) |
+| 1 - (1 - (1 - \*temp2\*))       | temp2(4)  |
+| 1 - (1 - \*temp3\*)             | temp3(-3) |
+| 1 - \*temp4\*                   | temp4(4)  |
+| -3                              |           |
+
+- ### Solution 4.e: Expression #5
+
+```cpp
+01: #include <cstdlib>
+02: #include <cmath>
+03:
+04: int main (int argc, char * argv[])
+05: {
+06:     int n = 4;
+07:
+08:     sqrt(sqrt(n));  
+09:
+10:     return EXIT_SUCCESS;
+11: }
+```
+
+The expression will get solved as follows:-
+
+|   expression    |    temporary    |
+| --------------- | --------------- |
+| sqrt(sqrt(n))   |                 |
+| sqrt(\*temp1\*) | temp1(2.000000) |
+| 1.414214        |                 |
 
 
+## 05. Statement 05: Type specifier (data type) and value of the variables.
+
+The solution is written below. The reason to attempt this exercise is to get an understanding of how `type specifiers`[^9] are deduced for `auto` variables. Here is the solution 👇
+
+### Solution 5: Commentry
+
+The type specifier for the `auto` variable is deduced from the initializer statement at run time. e.g. Consider the following code segment:-
+
+```c++
+auto value = 45;
+```
+
+If we see the *rvalue* it solves down to an integer expression i.e. 45. Integers are assigned to type specifer *int* when assignment is done. based on the fact lets see how it will work for our program:-
+
+```c++
+01: #include <iostream>
+02: #include <climits>
+03:
+04: int main (int argc, char * argv[])
+05: {
+06:     auto x = INT_MAX ;
+07:     auto y = INT_MAX ;
+08:     auto z = unsigned long(x) + y;
+09:
+10:     std::cout << std::boolalpha << std::is_same<decltype(x),int>::value << std::endl;
+11:     std::cout << std::boolalpha << std::is_same<decltype(y),int>::value << std::endl;
+12:     std::cout << std::boolalpha << std::is_same<decltype(z),unsigned long>::value << std::endl;
+13:
+14:     return EXIT_SUCCESS;
+15: }
+```
+
+There is just a small addition that we have done here, to verify the type identifier we have written 3 statements _see line 10 to 12_. First we have initialized `x` to INT_MAX[^10]. Now, since the *rvalue* is of type integer, this will make `x` as int type. Same applies for variable `y` _see line 07_.
+
+When we add `x` and `y` _see line 08_ the resulting value is negative. Why? Because we exceed the maximum value for integers and thus turning on the sign bit because of value roll over. We can easily tackle this by treating sign bit as value bit by making use of `unsigned` qualifier. We have done this by type-casting `x` and thus making whole expression computed under `unsigned long`. Finally, the type of `z` will be `unsigned long`. The same has been verified below _see line 10 to 12_.
 
 >Hope you have liked the solutions and must have learned something. Rest of the answers will be available to you in part 2 and 3 of this answer sheet.
 >If you still have questions feel free to connect. We will be happy to answer your questions.
@@ -335,3 +464,5 @@ The expression will get solved as follows:-
 [^6]: [Raising a *base* to given power](http://www.cplusplus.com/reference/cmath/pow/)
 [^7]: [C++ mathematical library functions and constants](http://www.cplusplus.com/reference/cmath/)
 [^8]: [What is float_t or double_t](https://stackoverflow.com/a/5390090/2633215)
+[^9]: [Deducing the type specifier for auto variables](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/rzarg/auto_type_deduction.htm)
+[^10]: [Maximum value for integer type in C++](http://www.cplusplus.com/reference/climits/)

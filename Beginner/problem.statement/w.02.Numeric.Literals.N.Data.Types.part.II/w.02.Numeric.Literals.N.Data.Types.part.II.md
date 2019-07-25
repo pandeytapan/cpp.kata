@@ -145,7 +145,7 @@ e. sqrt(sqrt(n));
 
 ### Statement 6
 
-What are the type specifier (data type)  and value of the variables in the following programs?
+What are the type specifier (data type) and value of the variables in the following programs?
 
 a. The value of x, y and z, and their type?
 
