@@ -594,7 +594,33 @@ The code that is given is as follows:-
 
 The code is quite self explanatiory one had followed the psuedocode statement.
 
-Let's try to understand the problem by running the program first. Here is  a sample output:-
+## 09. Statement 07: Psuedocode to C++ code
+
+The solution is written below. On attempting this exercise you will learn converting english statements to C++ code. Here is the solution 👇
+
+### Solution 9: Commentry
+
+The code that is given is as follows:-
+
+```c++
+01: #include <iostream>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     auto price = 2.95f;
+06:     int dollars = price;
+07:     int cents = (price - dollars) * 100 + 0.5f;
+08:
+09:     std::cout << "Price: "<< price << std::endl;
+10:     std::cout << "Dollars: "<< dollars << std::endl;
+11:     std::cout << "Cents: "<< cents << std::endl;
+12:
+13:     return EXIT_SUCCESS;
+14: }
+```
+
+The code is quite self explanatiory one had followed the psuedocode statement.
+Here is the sample output:-
 
 ```c++
 -1294967296
