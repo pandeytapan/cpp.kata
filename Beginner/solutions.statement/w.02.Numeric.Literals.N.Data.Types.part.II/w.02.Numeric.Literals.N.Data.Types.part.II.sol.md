@@ -22,6 +22,12 @@
     - [Solution 3: Commentry](#solution-3-commentry)
   - [04. Statement 04: Value of C++ expressions](#04-statement-04-value-of-c-expressions)
     - [Solution 4.a: Commentry](#solution-4a-commentry)
+  - [05. Statement 05.a: Type specifier (data type) and value of the variables.](#05-statement-05a-type-specifier-data-type-and-value-of-the-variables)
+    - [Solution 5.a: Commentry](#solution-5a-commentry)
+  - [06. Statement 05.b: Values for variables price and dollar](#06-statement-05b-values-for-variables-price-and-dollar)
+    - [Solution5.b: Commentry](#solution5b-commentry)
+  - [07. Statement 06: Correcting the expression values](#07-statement-06-correcting-the-expression-values)
+    - [Solution 6: Commentry](#solution-6-commentry)
   - [Footnotes](#footnotes)
 
 <!-- /code_chunk_output -->
@@ -405,12 +411,11 @@ The expression will get solved as follows:-
 | sqrt(\*temp1\*) | temp1(2.000000) |
 | 1.414214        |                 |
 
-
-## 05. Statement 05: Type specifier (data type) and value of the variables.
+## 05. Statement 05.a: Type specifier (data type) and value of the variables.
 
 The solution is written below. The reason to attempt this exercise is to get an understanding of how `type specifiers`[^9] are deduced for `auto` variables. Here is the solution 👇
 
-### Solution 5: Commentry
+### Solution 5.a: Commentry
 
 The type specifier for the `auto` variable is deduced from the initializer statement at run time. e.g. Consider the following code segment:-
 
@@ -441,6 +446,187 @@ If we see the *rvalue* it solves down to an integer expression i.e. 45. Integers
 There is just a small addition that we have done here, to verify the type identifier we have written 3 statements _see line 10 to 12_. First we have initialized `x` to INT_MAX[^10]. Now, since the *rvalue* is of type integer, this will make `x` as int type. Same applies for variable `y` _see line 07_.
 
 When we add `x` and `y` _see line 08_ the resulting value is negative. Why? Because we exceed the maximum value for integers and thus turning on the sign bit because of value roll over. We can easily tackle this by treating sign bit as value bit by making use of `unsigned` qualifier. We have done this by type-casting `x` and thus making whole expression computed under `unsigned long`. Finally, the type of `z` will be `unsigned long`. The same has been verified below _see line 10 to 12_.
+
+## 06. Statement 05.b: Values for variables price and dollar
+
+The solution is written below. The reason to attempt this exercise is to get an understanding of how `type specifiers`[^9] are deduced for `auto` variables. Here is the solution 👇
+
+### Solution5.b: Commentry
+
+If we see the *rvalue* it solves down to an integer expression i.e. 45. Integers are assigned to type specifer *int* when assignment is done. based on the fact lets see how it will work for our program:-
+
+```c++
+01: #include <iostream>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     auto price = 2.55f;
+06:     auto dollars = int(price + 0.5);
+07:
+08:     std::cout << sizeof(price) << std::endl;
+09:     std::cout << sizeof(dollars) << std::endl;
+10:
+11:     return EXIT_SUCCESS;
+12: }
+```
+
+We are making use of literal suffix here (_see line 05_) to manage the amount of bytes allocated in memeory for saving.
+
+Placing `f` after a floating point value treats it as single precision. Single precision values are stored in 4 bytes with `float` type specifier.
+
+Now in next line we are adding the value in `price` with 0.5 and typecasting it to integer. This expression will discard the decimal part and will assign the integer value to variable `dollars`.
+
+Now since integers are stored in 4 bytes, `dollars` is stored in 4 bytes with type specifier as `int`.
+
+The output after running program is :-
+
+```con
+4
+4
+```
+Now we have 2 questions here: -
+
+- What if we have written _line 05_ like this:-
+
+```c++
+05:     auto price = 2.55;
+```
+
+- What if we have written _line 06_ like this:-
+
+```c++
+06:     auto dollars = price + 0.5;
+```
+
+Lets first see how it changes the answer. Here is the output of sample run:-
+
+```cpp
+8
+8
+```
+
+Once the suffix `f` is removed the value is treated as double precision. Double precision values are stored in 8 bytes instead of 4 as in single precision.
+
+Thus this time `price` is stored with `double` type specifier. 
+
+In _line 06_ all the computations are done in `double` type specifier because it includes `price` variable that is storing values in `double`.
+
+Even if you will place a `f` after 0.5 in _line 06_, still computation will be done in `double`.
+
+Since both the `price` and `dollars` are storing values in `double` we have output as `8` i.e. number of bytes occupied.
+
+## 07. Statement 06: Correcting the expression values
+
+The solution is written below. On attempting this exercise you will learn usage of typecasting in certain conditions. Here is the solution 👇
+
+### Solution 6: Commentry
+
+The code that is given is as follows:-
+
+```c++
+1: #include <iostream>
+2:
+3: int main (int argc, char * argv[])
+4: {
+5:     std::cout << 3 * 1'000 * 1'000 *1'000 << std::endl;
+6:     std::cout << 3.0 * 1'000 * 1'000 *1'000 << std::endl;
+7:
+8:     return EXIT_SUCCESS;
+9: }
+```
+
+Let's try to understand the problem by running the program first. Here is  a sample output:-
+
+```c++
+-1294967296
+3e+09
+```
+
+The first one is for sure a problem and second one can be modified from scientific notation to floating point notation.
+
+For first one to work correctly we have to consider sign bit as value bit. We have done it easily using `unsigned` qualifier.
+
+To change the display of floating point number we have used a manipulator `std::fixed`. Here is the solution:-
+
+```c++
+1: #include <iostream>
+2:
+3: int main (int argc, char * argv[])
+4: {
+5:     std::cout << unsigned(3 * 1'000 * 1'000 *1'000) << std::endl;
+6:     std::cout << std::fixed<< 3.0 * 1'000 * 1'000 *1'000 << std::endl;
+7:
+8:     return EXIT_SUCCESS;
+9: }
+```
+
+And this is the change in the output:-
+
+```con
+3000000000
+3000000000.000000
+```
+
+## 08. Statement 07: Psuedocode to C++ code
+
+The solution is written below. On attempting this exercise you will learn converting english statements to C++ code. Here is the solution 👇
+
+### Solution 8: Commentry
+
+The code that is given is as follows:-
+
+```c++
+01: #include <iostream>
+02:
+03: int main (int argc, char * argv[])
+04: {
+05:     auto price = 2.95f;
+06:     int dollars = price;
+07:     int cents = (price - dollars) * 100 + 0.5f;
+08:
+09:     std::cout << "Price: "<< price << std::endl;
+10:     std::cout << "Dollars: "<< dollars << std::endl;
+11:     std::cout << "Cents: "<< cents << std::endl;
+12:
+13:     return EXIT_SUCCESS;
+14: }
+```
+
+The code is quite self explanatiory one had followed the psuedocode statement.
+
+Let's try to understand the problem by running the program first. Here is  a sample output:-
+
+```c++
+-1294967296
+3e+09
+```
+
+The first one is for sure a problem and second one can be modified from scientific notation to floating point notation.
+
+For first one to work correctly we have to consider sign bit as value bit. We have done it easily using `unsigned` qualifier.
+
+To change the display of floating point number we have used a manipulator `std::fixed`. Here is the solution:-
+
+```c++
+1: #include <iostream>
+2:
+3: int main (int argc, char * argv[])
+4: {
+5:     std::cout << unsigned(3 * 1'000 * 1'000 *1'000) << std::endl;
+6:     std::cout << std::fixed<< 3.0 * 1'000 * 1'000 *1'000 << std::endl;
+7:
+8:     return EXIT_SUCCESS;
+9: }
+```
+
+And this is the change in the output:-
+
+```con
+3000000000
+3000000000.000000
+```
+
+
 
 >Hope you have liked the solutions and must have learned something. Rest of the answers will be available to you in part 2 and 3 of this answer sheet.
 >If you still have questions feel free to connect. We will be happy to answer your questions.
