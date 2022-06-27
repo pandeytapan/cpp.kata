@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/include/blah.h
+iostream
+-
+
+/home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/main.cpp
+iostream
+-
+inttypes.h
+-
+include/blah.h
+/home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/include/blah.h
+
