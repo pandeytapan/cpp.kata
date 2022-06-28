@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch
+CMAKE_SOURCE_DIR = /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build
+CMAKE_BINARY_DIR = /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -81,7 +81,7 @@ test/fast: test
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -91,8 +91,8 @@ package_source/fast: package_source
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -113,9 +113,9 @@ package/fast: package
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build/CMakeFiles /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build/CMakeFiles /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -520,6 +520,19 @@ ContinuousSubmit/fast:
 	$(MAKE) -f CMakeFiles/ContinuousSubmit.dir/build.make CMakeFiles/ContinuousSubmit.dir/build
 .PHONY : ContinuousSubmit/fast
 
+#=============================================================================
+# Target rules for targets named blah
+
+# Build rule for target.
+blah: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 blah
+.PHONY : blah
+
+# fast build rule for target.
+blah/fast:
+	$(MAKE) -f blah/CMakeFiles/blah.dir/build.make blah/CMakeFiles/blah.dir/build
+.PHONY : blah/fast
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -587,6 +600,7 @@ help:
 	@echo "... scratch"
 	@echo "... ContinuousTest"
 	@echo "... ContinuousSubmit"
+	@echo "... blah"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -4,6 +4,7 @@
 .vscode
 .editorconfig
 .res
+**/build
 # Compiled Object files
 *.slo
 *.lo

@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/scratch.dir/main.cpp.o  -o scratch 
+/usr/bin/c++    -rdynamic CMakeFiles/scratch.dir/main.cpp.o  -o scratch  blah/libblah.a 

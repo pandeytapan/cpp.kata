@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch
+CMAKE_SOURCE_DIR = /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build
+CMAKE_BINARY_DIR = /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build
 
 # Utility rule file for ExperimentalCoverage.
 
@@ -71,6 +71,6 @@ CMakeFiles/ExperimentalCoverage.dir/clean:
 .PHONY : CMakeFiles/ExperimentalCoverage.dir/clean
 
 CMakeFiles/ExperimentalCoverage.dir/depend:
-	cd /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build /home/tapan/Documents/code.books/playground/cpp.code.kata/scratch/build/CMakeFiles/ExperimentalCoverage.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build /home/tapan/Documents/code.books/prac.rep/cpp.code.kata/scratch/build/CMakeFiles/ExperimentalCoverage.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ExperimentalCoverage.dir/depend
 
