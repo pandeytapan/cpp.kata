@@ -1,18 +1,15 @@
-![alt text](http://programmingdays.com/img/62c218d0-fda7-4dd2-b49f-8628130c4c8f.png "programmingDays")
+`Anagram` Solution
 
-# C++ code kata: Week #5 `Anagram` Solution
+If you have still not attempted, I advise you to write at least a few solutions before moving forward with this solution document. For others here are the solutions for you.
 
-Hello &#x1F44B;
+# Solutions
 
-If you have still not attempted, I advise you to write at least a few solutions before moving forward with this solution document. For others here are the solutions &#x1F381; for you.
-
-# Ground Solutions
-
-Let us start with legacy C/ C++ solutions. These are straight forward and easy to implement if you have always followed language only construct and not any library. So these solutions go like this &#x1F680;
+Let us start with legacy C/ C++ solutions. These are straight forward and easy to implement if you have always followed language only construct and not any library. 
+So these solutions go like this:
 
 # Solution 1
 
-```C++
+```Cpp
 01: bool is_anagram(const char *pFirst, const char *pSecond)
 02: {
 03:     #define ALPHABETS 26
@@ -37,7 +34,6 @@ Let us start with legacy C/ C++ solutions. These are straight forward and easy t
 22:     }
 23:     return nIndex == ALPHABETS;
 24: }
-
 ```
 
 ## Solution 1: Commentry
@@ -81,7 +77,6 @@ If you see in the last example we have written solution that is quite plain, dif
 21:     }
 22:     return !pFirst[nFirstIndex];
 23: }
-
 ```
 
 ## Solution 2: Commentry
@@ -118,11 +113,9 @@ This solution is very costly as the calculation time for anagram matching is ver
 19:     }
 20:     return pFirst[nFirstIndex] == pSecond[nFirstIndex];
 21: }
-
 ```
 
 ## Solution 3: Commentry
-
 
 There are a few things happening in this solution that reduces our code. First is the usage of **[tolower](http://www.cplusplus.com/reference/cctype/tolower/)**, for normalization of alphabets as we discussed. It checks for equality of elements as we did earlier. _See line 07 to 19_. To make sure that both strings have ended i.e. they are the equal length it doesn't use strlen() but checks character at `nFirstIndex`. _See line no 20_. As loop statement of line 07 breaks on '\0' NULL character, thus index character at both `pFirst`and `pSecond`should be the same indicating they are equal length and terminated.       
 
@@ -131,15 +124,13 @@ There are a few things happening in this solution that reduces our code. First i
 It is easier to write an Anagram solution if we change our approach of comparing the alphabets. Our next written solutions make use of this approach. In all the coming solutions we will:-
 
 1. Normalize both strings to lower case.
-1. Sort both the string in **[lexiographic](https://en.wikipedia.org/wiki/Lexicographical_order)** order so that we can get the result in a single iteration. 
+2. Sort both the string in **[lexiographic](https://en.wikipedia.org/wiki/Lexicographical_order)** order so that we can get the result in a single iteration. 
 
 Making these changes will make our solutions clear to understand and much faster to execute. Here we go &#x1F680;
 
-
-# Solution 4 
+# Solution 4
 
 ```C++
-
 01: #include <algorithm>
 02: using namespace std;
 03: #include <string.h>
@@ -178,9 +169,8 @@ Making these changes will make our solutions clear to understand and much faster
 36:     return bIsMatch;
 37: }
 38: 
-
 ```
- 
+
 ## Solution 4: Commentry
 
 In this solution, we have first allocated memory to store the strings we need to sort, calculating their size using the **[strlen](http://www.cplusplus.com/reference/cstring/strlen/)** function. This is necessary since passed arguments are read-only memory i.e. **[string literals](https://docs.microsoft.com/en-us/cpp/c-language/c-string-literals?view=vs-2017)**. _See line 19 to 24_. Next, we passed these strings to sort function. Before sorting we need to normalize the strings for that we have used **[transform](https://en.cppreference.com/w/cpp/algorithm/transform)** that we are seeing for past few weeks. Next, we have used **[selection sort](https://en.wikipedia.org/wiki/Selection_sort)** for sorting the strings. Also, we are using **[std:: swap](https://en.cppreference.com/w/cpp/algorithm/swap)** to exchange the alphabets between locations instead of using a temporary variable. _See line 06 to 15_. 
@@ -193,7 +183,7 @@ In the next solution, we will try to go towards automatic memory management and 
 
 ----
 
-# Solution 5 
+# Solution 5
 
 ```C++
 01: #include <algorithm>
@@ -216,9 +206,8 @@ In the next solution, we will try to go towards automatic memory management and 
 18: 
 19:     return !strcmp(first.get(), second.get());
 20: }
-
 ```
- 
+
 ## Solution 5: Commentry
 
 This solution is an augmentation of our last solution in which we have done two changes. We have implemented **[std::unique_ptr](https://en.cppreference.com/w/cpp/memory/unique_ptr)** for automatic memory management which is a better way than using the raw pointers and relieves our solution from memory leaks.
@@ -231,8 +220,7 @@ This time as our strings are sorted we have used `strcmp()` to compare two strin
 
 Our next solution tries to make use of more Standard C++ data structure to remove all nonrequired computation and focus completely over anagram calculation. Here we go &#x1F680;
 
-
-## Solution 6 
+## Solution 6
 
 ```C++
 01: #include <algorithm>
@@ -251,9 +239,8 @@ Our next solution tries to make use of more Standard C++ data structure to remov
 14: 
 15:     return !first.compare(second);
 16: }
-
 ```
- 
+
 ## Solution 6: Commentry
 
 The only difference this solution is having than the last solution is the usage of **[std:: string](http://www.cplusplus.com/reference/string/string/?kw=string)** for argument capture. _See line no 06_. This not only relieves the solution from manual iterator management, _See line no 09 to 13_, but also makes string comparison and result providing very easy. _See line no. 16_.
@@ -262,6 +249,4 @@ If we can ignore the transformation of strings to lowercase than this solution f
 
 The test script for the solution can be **[found here](https://1drv.ms/u/s!An6FDnpXbnZ80lSjWg-xHrABO022)**
 
-Hope you have liked this problem and its solutions. See you next Monday. Till then 
-
-Happy programming (Days):wink:
+Hope you have liked this problem and its solutions.

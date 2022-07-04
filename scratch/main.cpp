@@ -1,18 +1,38 @@
 #include <iostream>
-#include <inttypes.h>
-#include "include/blah.h"
-#include "zlib.h"
+using namespace std;
+
+class Base{
+    public:
+    void f(){
+        cout << "Base::f()" << endl;
+    }
+};
+
+class Derived : public Base{
+    public:
+    void f(){
+        cout << "Derived::f()" << endl;
+    }
+};
+
+void f(){
+    static int i = 3;
+    cout << i;
+    if (--i)f();
+}
 
 int main (int argc, char * argv[])
 {
-    int one_billion = 1'000'000'000;
-    int64_t three_billion = 3'000'000'000;
- 
-    std::cout << sizeof(one_billion) << std::endl;
-    std::cout << sizeof(three_billion) << std::endl;
-    std::cout << sizeof(1'000'000'000) << std::endl;
-    std::cout << sizeof(3'000'000'000) << std::endl;
+    // Derived obj;
+    // obj.Base::f();
+    int i;
+    char s[] = "hello";
+    for (i = 0; s[i]; ++i);
+    cout << i << endl;
+    
+    i=0;
+    while(s[i++]);
+       cout << i << endl;
 
-    Blah().boo();
     return EXIT_SUCCESS;
 }
