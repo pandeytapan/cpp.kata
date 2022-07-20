@@ -39,13 +39,7 @@ To write solutions you can download tools from:
 
 Test Script for this week's problem can be downloaded from **[here](https://1drv.ms/u/s!An6FDnpXbnZ80lSjWg-xHrABO022)**.
 
-# Sensei Says &#x1F94B;
-
-**_"What you learn is not what you read or listened to, but rather what you attempted at..."_**
-
-**[Progressive learning](https://en.wikipedia.org/wiki/Progressive_education)**
-
-Try to solve them in as many ways as possible, you will learn new techniques that will be very helpful to you in the long run especially in the work field.
+Try to solve the execise in as many ways as possible, you will learn new techniques that will be very helpful to you in the long run.
 
 **What you will gain from these exercises ?**
 

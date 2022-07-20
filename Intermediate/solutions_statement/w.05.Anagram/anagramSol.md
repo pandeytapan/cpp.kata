@@ -5,7 +5,7 @@ If you have still not attempted, I advise you to write at least a few solutions 
 # Solutions
 
 Let us start with legacy C/ C++ solutions. These are straight forward and easy to implement if you have always followed language only construct and not any library. 
-So these solutions go like this:
+So the solutions go like this:
 
 # Solution 1
 
@@ -49,7 +49,7 @@ The integer arrays that we have defined in last solution _See line number 05 and
 
 ---
 
-If you see in the last example we have written solution that is quite plain, difficult to read and understand. Our next solution tries to do things in other ways. Here we go &#x1F680;
+In the last example we have written solution that is quite plain, difficult to read and understand. Our next solution tries to do things in other ways:
 
 # Solution 2
 
@@ -85,13 +85,13 @@ In this version of our solution, we have initially checked using **[strlen](http
 
 Next, we have matched each alphabet of `pFirst` with each alphabet of `pSecond`. _See line 09 and 21_. Since the passed strings may contain both lower and upper case characters we have normalized the individual alphabets to lower case temporarily at the time of comparison. _See line 14 and 15_. If we have iterated the `pSecond` completely that means there is nonmatching alphabet in `pFirst`. We have checked this fact and stopped matching further since it is clear that passed arguments are not an anagram. _See line 18 to 22_.
 
-This solution is very costly as the calculation time for anagram matching is very high. Our next solution is not the elegant one but it is just trying to reduce the stress of expression writing. Let's see how here we go &#x1F680;   
+This solution is very costly as the calculation time for anagram matching is very high. Our next solution is not the elegant one but it is just trying to reduce the stress of expression writing.  
 
 ---  
 
 # Solution 3
 
-```C++
+```cpp
 01: #include <ctype.h>
 02: 
 03: bool is_anagram(const char *pFirst, const char *pSecond)
@@ -121,16 +121,16 @@ There are a few things happening in this solution that reduces our code. First i
 
 ---
 
-It is easier to write an Anagram solution if we change our approach of comparing the alphabets. Our next written solutions make use of this approach. In all the coming solutions we will:-
+It is easier to write an Anagram solution if we change our approach of comparing the alphabets. Our next solution make use of this approach. In all the coming solutions we will:-
 
 1. Normalize both strings to lower case.
 2. Sort both the string in **[lexiographic](https://en.wikipedia.org/wiki/Lexicographical_order)** order so that we can get the result in a single iteration. 
 
-Making these changes will make our solutions clear to understand and much faster to execute. Here we go &#x1F680;
+Making these changes will make our solutions clear to understand and much faster to execute:
 
 # Solution 4
 
-```C++
+```cpp
 01: #include <algorithm>
 02: using namespace std;
 03: #include <string.h>
@@ -179,13 +179,13 @@ Next, we have implemented a loop that holds or executes till individual alphabet
 
 Once out of the loop we compare current alphabet in both strings to be the same (it should be the NULL character). Next, we have deleted the allocated memory and return the result.
 
-In the next solution, we will try to go towards automatic memory management and better sorting alternative instead of trying to implement it manually since sorting and memory management aren't the central theme of our solution. Here we go &#x1F680;
+In the next solution, we will try to go towards automatic memory management and better sorting alternative instead of trying to implement it manually since sorting and memory management aren't the central theme of our solution.
 
 ----
 
 # Solution 5
 
-```C++
+```cpp
 01: #include <algorithm>
 02: #include <memory>
 03: #include <string.h>
@@ -218,11 +218,11 @@ This time as our strings are sorted we have used `strcmp()` to compare two strin
 
 ---
 
-Our next solution tries to make use of more Standard C++ data structure to remove all nonrequired computation and focus completely over anagram calculation. Here we go &#x1F680;
+Our next solution tries to make use of more Standard C++ data structure to remove all nonrequired computation and focus completely over anagram calculation. 
 
-## Solution 6
+# Solution 6
 
-```C++
+```cpp
 01: #include <algorithm>
 02: #include <memory>
 03: #include <string>
