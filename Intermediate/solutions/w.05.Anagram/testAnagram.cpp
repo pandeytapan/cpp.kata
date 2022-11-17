@@ -10,7 +10,7 @@
 
 TEST_CASE("Test with Zero Letters Word", "[anagram:Ground]")
 {
-    REQUIRE(is_anagram_005("","") == true);
+    REQUIRE(is_anagram_006("","") == true);
     REQUIRE(is_anagram_010("","") == true);
     REQUIRE(is_anagram_011("","") == true);
     REQUIRE(is_anagram_020("","") == true);
