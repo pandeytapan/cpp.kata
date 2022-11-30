@@ -13,14 +13,7 @@
     \param _in_offset offset leaves out the first \a _in_offset 8-bit elements from \a _in_src. MUST NOT be NEGATIVE.
    \returns count of 8-bit elements that can be appended/ copied from \a _in_src into \a _in_dest.
 */
-#define safe_cpy_len(_in_dest_max_len, _in_dest_cur_len, _in_src_len, _in_offset) \
-    ( (_in_dest_max_len) - (_in_dest_cur_len + _in_offset) > (_in_src_len) ? \
-       _in_src_len : (_in_dest_max_len) - (_in_dest_cur_len + _in_offset + 1) )
+#define safe_cpy_len(_in_dest_max_len, _in_dest_cur_len) \
+    ( ((_in_dest_max_len) - (_in_dest_cur_len)) - 1 )
 
-#define safe_max(a,b)        \
-({                           \
-    __typeof__ (a) _a = (a); \
-    __typeof__ (b) _b = (b); \
-    _a > _b ? _a : _b;       \
-})
 #endif // __COMVIVA_UNO_10_C_SRC_MEM_MACRO_H__
