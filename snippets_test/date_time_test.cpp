@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
     puts("-------------------\n");
 
     
-    u_int64_t result = 133125311772550652;//time(NULL);
+    u_int64_t result = 133117643167816082;//time(NULL);
     // result = result /  10000000.0 - 11644473600.0;
     time_t t = windows_time_to_unix_epoch(result);
     struct tm time_now = *localtime(&t);
