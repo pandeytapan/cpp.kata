@@ -16,4 +16,9 @@
 #define safe_cpy_len(_in_dest_max_len, _in_dest_cur_len) \
     ( ((_in_dest_max_len) - (_in_dest_cur_len)) - 1 )
 
+#define safe_min(a,b) \
+    ({ typeof (a) _a = (a); \
+       typeof (b) _b = (b); \
+       _a < _b ? _a : _b; })
+
 #endif // __COMVIVA_UNO_10_C_SRC_MEM_MACRO_H__
