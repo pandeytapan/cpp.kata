@@ -1,5 +1,13 @@
 CC = g++
-cover: coverage.cpp
-	$(CC) -fprofile-arcs -ftest-coverage -o coverage coverage.cpp
-	./coverage
-	gcov coverage.cpp
+CFLAGS = -Wall -pg
+CCOVERAGE = -fprofile-arcs -ftest-coverage
+
+coverage: coverage.o
+	$(CC) $(CFLAGS) $(CCOVERAGE) coverage.o
+
+coverage.o: coverage.cpp
+	$(CC) -c $(CFLAGS) $(CCOVERAGE) -c coverage.cpp
+
+clean:
+	rm -f *.o coverage *.gcda *.gcno *.gcov
+
