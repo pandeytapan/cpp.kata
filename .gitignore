@@ -36,6 +36,9 @@
 *.exe
 *.out
 *.app
+*.gcov
+*.gcda
+*.gcno
 
 #other files
 *.pdf
