@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -pg
+CFLAGS = -Wall -pg -g
 CCOVERAGE = -fprofile-arcs -ftest-coverage
 
 coverage: coverage.o
