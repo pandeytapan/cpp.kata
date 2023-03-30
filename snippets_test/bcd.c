@@ -1,38 +1,50 @@
 #include <stdio.h>
+#include <string.h>
 
-/**
- * decimal_to_bcd - Convert a decimal number to binary coded decimal (BCD) representation
- * @decimal: Decimal number to convert
- *
- * Return: BCD representation of the decimal number
- */
-unsigned char decimal_to_bcd(unsigned char decimal) {
-    return ((decimal / 10) << 4) | (decimal % 10);
+#define MAX_MSISDN_LEN 10
+
+
+unsigned char getDigit(char c) {
+    return c >= '0' && c <= '9' ? c - '0' : c - 'A' + 10;
 }
 
-/**
- * decimals_to_bcds - Convert an array of decimal numbers to an array of BCD representations
- * @decimals: Array of decimal numbers to convert
- * @bcds: Array to store BCD representations
- */
-void decimals_to_bcds(unsigned char *decimals, unsigned char *bcds) {
-    int i = 0;
-    while (*decimals) {
-        *bcds++ = decimal_to_bcd(*decimals++);
-        i++;
+int dec_to_bcd_str(char * psz_in_dec, unsigned char * psz_out_bcd) {
+    int len = strlen(psz_in_dec);
+    int i, j;
+    for (i = 0, j = 0; i < len; i += 2, j++) {
+        psz_out_bcd[j] = (getDigit(psz_in_dec[i]) << 4) | getDigit(psz_in_dec[i+1]);
+    }
+    if (len % 2) {
+        psz_out_bcd[j-1] |= 0xf0;
+    }
+    return (len + 1) / 2;
+}
+
+void bcd_to_dec_str(unsigned char * psz_in_bcd, char * psz_out_dec, int n_bcd_len) {
+    int i, j;
+    for (i = 0, j = 0; i < n_bcd_len; i++, j += 2) {
+        psz_out_dec[j] = (psz_in_bcd[i] >> 4) + '0';
+        psz_out_dec[j+1] = (psz_in_bcd[i] & 0x0f) + '0';
+    }
+    if (psz_out_dec[j-1] == '0') {
+        psz_out_dec[j-1] = '\0';
+    } else {
+        psz_out_dec[j] = '\0';
     }
 }
-
-int main(void) {
-    unsigned char decimals[] = {12, 34, 56, 78, 90};
-    int size = sizeof(decimals) / sizeof(decimals[0]);
-    unsigned char bcds[size];
-    decimals_to_bcds(decimals, bcds);
-    printf("BCD representation of decimals:");
-    int i;
-    for (i = 0; i < size; i++) {
-        printf(" %02X", bcds[i]);
+int main() {
+    char input[] = "1234567890";
+    unsigned char output[MAX_MSISDN_LEN];
+    int length = dec_to_bcd_str(input, output);
+    printf("Input: %s\n", input);
+    printf("Output: ");
+    for(int i=0; i<length; i++) {
+        printf("%02X ", output[i]);
     }
     printf("\n");
+
+    char output2[MAX_MSISDN_LEN];
+    bcd_to_dec_str(output, output2, length);
+    printf("Output2: %s\n", output2);
     return 0;
 }
