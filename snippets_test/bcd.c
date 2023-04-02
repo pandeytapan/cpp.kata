@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_MSISDN_LEN 10
+#define MAX_MSISDN_LEN 13
 
 
 unsigned char getDigit(char c) {
@@ -9,6 +9,7 @@ unsigned char getDigit(char c) {
 }
 
 int dec_to_bcd_str(char * psz_in_dec, unsigned char * psz_out_bcd) {
+
     int len = strlen(psz_in_dec);
     int i, j;
     for (i = 0, j = 0; i < len; i += 2, j++) {
@@ -17,6 +18,7 @@ int dec_to_bcd_str(char * psz_in_dec, unsigned char * psz_out_bcd) {
     if (len % 2) {
         psz_out_bcd[j-1] |= 0xf0;
     }
+    
     return (len + 1) / 2;
 }
 
@@ -32,10 +34,17 @@ void bcd_to_dec_str(unsigned char * psz_in_bcd, char * psz_out_dec, int n_bcd_le
         psz_out_dec[j] = '\0';
     }
 }
+
 int main() {
-    char input[] = "1234567890";
-    unsigned char output[MAX_MSISDN_LEN];
+    
+    char input[] = "911234567890";
+    
+    // set output to 0 
+    unsigned char output[MAX_MSISDN_LEN] = {0};
+    unsigned int length = dec_to_bcd_str(input, output);
     int length = dec_to_bcd_str(input, output);
+    
+    
     printf("Input: %s\n", input);
     printf("Output: ");
     for(int i=0; i<length; i++) {
@@ -44,7 +53,12 @@ int main() {
     printf("\n");
 
     char output2[MAX_MSISDN_LEN];
-    bcd_to_dec_str(output, output2, length);
+    // set output2 to 0
+    memset(output2, 0, MAX_MSISDN_LEN);
+    
+    // copy 0x01 to output2
+    output2[0] = 0x01;
+    bcd_to_dec_str(output, output2, length );
     printf("Output2: %s\n", output2);
     return 0;
 }
