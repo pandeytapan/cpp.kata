@@ -33,6 +33,8 @@ void bcd_to_dec_str(unsigned char * psz_in_bcd, char * psz_out_dec, int n_bcd_le
     } else {
         psz_out_dec[j] = '\0';
     }
+    // print out the result
+    // 
 }
 
 int main() {
@@ -42,7 +44,6 @@ int main() {
     // set output to 0 
     unsigned char output[MAX_MSISDN_LEN] = {0};
     unsigned int length = dec_to_bcd_str(input, output);
-    int length = dec_to_bcd_str(input, output);
     
     
     printf("Input: %s\n", input);
