@@ -25,10 +25,12 @@ int64_t pad_negative(uint64_t u64_num, uint8_t size)
         0xFF80000000000000, /*56-BIT*/
         0x8000000000000000  /*64-BIT*/
     };
+
     auto n_mask = (vec_vcn_sign_extender[size-1] << (64 - size * 8));
     n_mask >>= (64 - size * 8);
+    int64_t u64_padded = (u64_num & n_mask) ? u64_num | vec_vcn_sign_extender[size-1]: u64_num;
 
-    return (u64_num & n_mask) ? u64_num | vec_vcn_sign_extender[size-1]: u64_num;
+    return u64_padded;
 }
 
 std::vector<DataRun> parse_runlist(const unsigned char* runlist, size_t size) {
@@ -93,6 +95,6 @@ int main() {
     //     };
     std::vector<DataRun> runs = parse_runlist(runlist, sizeof(runlist));
 
-    std::cout << vcn_to_lcn(runs, 3) << std::endl; // should output 0x25
+    vcn_to_lcn(runs);
     return 0;
 }
