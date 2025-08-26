@@ -1,0 +1,24 @@
+# format and lint the code
+lint:
+    @echo "Running linters..."
+    @python3 --version
+
+# build and test the project
+test:
+    echo "Running tests..."
+
+# build the project with all dependencies compiled
+build:
+    echo "Building the project..."
+
+# install dependencies and prepare the environment
+install:
+    echo "Installing dependencies..."
+
+# deploy the project to a server or cloud service
+deploy:
+    echo "Deploying the project..."
+
+# clean up build artifacts and temporary files
+clean:
+    echo "Cleaning up build artifacts..."
